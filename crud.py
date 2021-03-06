@@ -7,8 +7,45 @@ import logging
 
 
 # ======================================== STOCK ROUTES =============================================
+def get_all_stocks(user_id, imdbID):
+    '''GET SPECIFIC NOMINATION'''
+
+    stock = Stock.query.all()
+
+    return stock
+
 
 # ======================================== USER STOCK ROUTES =============================================
+
+def get_user_stocks(user_id):
+    '''RETURN USER'S NOMINATIONS'''
+
+    stock_object_list = []
+    # ! we need a table join query here
+    User_Stock_list = UserStock.query.filter(UserStock.user_id == user_id).all()
+
+    return stock_object_list
+
+
+def remove_user_stock(user_id, stock_id):
+    '''REMOVE NOMINATION'''
+
+    stock = UserStock.query.filter(UserStock.user_id == user_id, UserStock.stock_id == stock_id).first()
+
+    db.session.delete(stock)
+    db.session.commit()
+
+
+def add_user_stock(user_id, stock_id):
+    '''ADD NOMINATION'''
+
+    now = datetime.datetime.now()
+    new_user_stock = UserStock(user_id = user_id,
+                            stock_id = stock_id,
+                            date_added = now,
+                            date_modified = now)
+    db.session.add(new_user_stock )
+    db.session.commit()
 
 # ======================================== CREATE | LOGIN ROUTES =============================================
 
