@@ -1,5 +1,5 @@
-const Router = ReactRouterDOM.BrowserRouter;
-const { useHistory, useParams, Redirect, Switch, Prompt, Link, Route } = ReactRouterDOM;
+// const Router = ReactRouterDOM.BrowserRouter;
+// const { useHistory, useParams, Redirect, Switch, Prompt, Link, Route } = ReactRouterDOM;
 
 function App() {
     const [user, setUser] = React.useState(undefined)
@@ -11,7 +11,7 @@ function App() {
 
 
     return (
-        <Stocks user={user} setUser={setUser}/>
+        <StocksContainer user={user} setUser={setUser}/>
     //   <Router>
 
     //       <TopNav user={user} setUser={setUser}/>
