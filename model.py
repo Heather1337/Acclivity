@@ -5,6 +5,7 @@ db = SQLAlchemy()
 
 # *****************************************************************************
 
+
 class User(db.Model):
     """A user."""
 
@@ -14,24 +15,23 @@ class User(db.Model):
                         autoincrement=True,
                         primary_key=True)
     fname = db.Column(db.String,
-                        nullable=False,
-                        unique=False)
+                      nullable=False,
+                      unique=False)
     lname = db.Column(db.String,
-                        nullable=False,
-                        unique=False)
+                      nullable=False,
+                      unique=False)
     email = db.Column(db.String,
-                        nullable=False,
-                        unique=True)
+                      nullable=False,
+                      unique=True)
     password = db.Column(db.String,
-                        nullable=False)
-    date_added = db.Column(db.DateTime,nullable=False)
-    date_modified = db.Column(db.DateTime,nullable=False)
+                         nullable=False)
+    date_added = db.Column(db.DateTime, nullable=False)
+    date_modified = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         return (f'<User user_id={self.user_id} fname ={self.fname} lname={self.lname} '
                 f'email={self.email} password={self.password}'
                 f' date_added={self.date_added} date_modified={self.date_modified}>')
-
 
 
 class UserStock(db.Model):
@@ -40,21 +40,20 @@ class UserStock(db.Model):
     __tablename__ = 'userstocks'
 
     userstock_id = db.Column(db.Integer,
-                        autoincrement=True,
-                        primary_key=True)
+                             autoincrement=True,
+                             primary_key=True)
     user_id = db.Column(db.Integer,
                         nullable=False,
                         unique=False)
     stock_id = db.Column(db.Integer,
-                        nullable=False,
-                        unique=False)
-    date_added = db.Column(db.DateTime,nullable=False)
-    date_modified = db.Column(db.DateTime,nullable=False)
+                         nullable=False,
+                         unique=False)
+    date_added = db.Column(db.DateTime, nullable=False)
+    date_modified = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         return (f'<User userstock_id={self.userstock_id} user_id={self.user_id} stock_id={self.stock_id} '
                 f' date_added={self.date_added} date_modified={self.date_modified}>')
-
 
 
 class Stock(db.Model):
@@ -63,29 +62,28 @@ class Stock(db.Model):
     __tablename__ = 'stocks'
 
     stock_id = db.Column(db.Integer,
-                        autoincrement=True,
-                        primary_key=True)
+                         autoincrement=True,
+                         primary_key=True)
     symbol = db.Column(db.String,
-                        nullable=False,
-                        unique=False)
+                       nullable=False,
+                       unique=False)
     sector = db.Column(db.String,
-                        nullable=True,
-                        unique=False)
+                       nullable=True,
+                       unique=False)
     dividend_yield = db.Column(db.String,
-                        nullable=True,
-                        unique=False)
+                               nullable=True,
+                               unique=False)
     dividend_amount = db.Column(db.String,
-                        nullable=True,
-                        unique=False)
-    payout_schedule= db.Column(db.String,
-                        nullable=True)
-    payout_ratio= db.Column(db.String,
-                        nullable=True)
+                                nullable=True,
+                                unique=False)
+    payout_schedule = db.Column(db.String,
+                                nullable=True)
+    payout_ratio = db.Column(db.String,
+                             nullable=True)
     stock_price = db.Column(db.String,
-                        nullable=True)
-    date_added = db.Column(db.DateTime,nullable=False)
-    date_modified = db.Column(db.DateTime,nullable=False)
-
+                            nullable=True)
+    date_added = db.Column(db.DateTime, nullable=False)
+    date_modified = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         return (f'<Stock symbol={self.symbol} dividend_amount={self.dividend_amount} dividend_yield={self.dividend_yield}  '
@@ -93,8 +91,7 @@ class Stock(db.Model):
                 f'sector={self.sector} date_added={self.date_added} date_modified={self.date_modified}>')
 
 
-
-def connect_to_db(flask_app, db_uri='postgresql:///shoppies', echo=True):
+def connect_to_db(flask_app, db_uri='postgresql:///acclivity', echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
