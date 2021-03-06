@@ -29,7 +29,7 @@ class User(db.Model):
 
     def __repr__(self):
         return (f'<User user_id={self.user_id} fname ={self.fname} lname={self.lname} '
-                f'email={self.email} password={self.password} submission_status={self.submission_status}'
+                f'email={self.email} password={self.password}'
                 f' date_added={self.date_added} date_modified={self.date_modified}>')
 
 
