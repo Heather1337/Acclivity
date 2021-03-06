@@ -11,32 +11,33 @@ function App() {
 
 
     return (
-      <Router>
+        <Stocks user={user} setUser={setUser}/>
+    //   <Router>
 
-          <TopNav user={user} setUser={setUser}/>
+    //       <TopNav user={user} setUser={setUser}/>
 
-          <Switch>
-                  <Route path="/about">
-                      <About/>
-                  </Route>
+    //       <Switch>
+    //               <Route path="/about">
+    //                   <About/>
+    //               </Route>
 
-                  <Route path='/login'>
-                      <Login user={user} setUser={setUser}/>
-                  </Route>
+    //               <Route path='/login'>
+    //                   <Login user={user} setUser={setUser}/>
+    //               </Route>
 
-                  <Route path='/signup'>
-                      <Signup setUser={setUser} user={user}/>
-                  </Route>
+    //               <Route path='/signup'>
+    //                   <Signup setUser={setUser} user={user}/>
+    //               </Route>
 
-                  <Route path="/">
-                      <LandingPage user={user} />
-                  </Route>
+    //               <Route path="/">
+    //                   <LandingPage user={user} />
+    //               </Route>
 
-          </Switch>
+    //       </Switch>
 
-          <Footer/>
+    //       <Footer/>
 
-      </Router>
+    //   </Router>
 
     );
 }
