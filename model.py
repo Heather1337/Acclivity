@@ -24,8 +24,6 @@ class User(db.Model):
                         unique=True)
     password = db.Column(db.String,
                         nullable=False)
-    submission_status = db.Column(db.String,
-                        nullable=False)
     date_added = db.Column(db.DateTime,nullable=False)
     date_modified = db.Column(db.DateTime,nullable=False)
 
@@ -60,9 +58,9 @@ class UserStock(db.Model):
 
 
 class Stock(db.Model):
-    """A user."""
+    """A Stock."""
 
-    __tablename__ = 'users'
+    __tablename__ = 'stocks'
 
     stock_id = db.Column(db.Integer,
                         autoincrement=True,
@@ -71,20 +69,20 @@ class Stock(db.Model):
                         nullable=False,
                         unique=False)
     sector = db.Column(db.String,
-                        nullable=False,
+                        nullable=True,
                         unique=False)
     dividend_yield = db.Column(db.String,
-                        nullable=False,
+                        nullable=True,
                         unique=False)
     dividend_amount = db.Column(db.String,
-                        nullable=False,
+                        nullable=True,
                         unique=False)
     payout_schedule= db.Column(db.String,
-                        nullable=False)
+                        nullable=True)
     payout_ratio= db.Column(db.String,
-                        nullable=False)
+                        nullable=True)
     stock_price = db.Column(db.String,
-                        nullable=False)
+                        nullable=True)
     date_added = db.Column(db.DateTime,nullable=False)
     date_modified = db.Column(db.DateTime,nullable=False)
 

@@ -22,7 +22,7 @@ db.create_all()
 
 
 
-stock_data = 'data/acclivity.csv'
+stock_data = 'data/Acclivity.csv'
 
 
 # ************************************************************************************
@@ -30,11 +30,13 @@ with open(stock_data, 'r') as file:
     csv_file = csv.DictReader(file)
     for row in csv_file:
         stock = Stock(  symbol = row['Ticker Symbol'].strip(),
+                        sector = 'fillinlater',
                         # sector = row['Sector'].strip(), Might need to add another seed function for this if we need to use both csv's
                         dividend_amount = row['Dividend Amount'].strip(),
                         dividend_yield  = row['Dividend Yield'].strip(),
                         payout_schedule = row['Payout Schedule'].strip(),
                         payout_ratio = row['Payout Ratio'].strip(),
+                        stock_price = 5,
                         date_added = '11-04-2020',
                         date_modified = '11-04-2020')
 
@@ -45,7 +47,6 @@ with open(stock_data, 'r') as file:
                     lname ='user',
                     email = 'user@gmail.com',
                     password = 'user',
-                    profile_img = 'https://www.pakstockexchange.com/stock3/profile_pictures/no-profile-picture.png',
                     date_added = '2020-11-21',
                     date_modified = '2020-11-21')
     db.session.add(new_user)
