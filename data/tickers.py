@@ -109,10 +109,7 @@ def slice_tickers(symbols):
 
 ticker_slices = slice_tickers(symbols_list)
 
-api_keys = ['BKbRifpJKOqo7sbgdiS4dpNgJJbhgA2b', '64Pq2r00bGiIMp1p2v5OlW1HyKPqf2Lc',
-'qFu3Rz73EdWbzqYWGoW6s2LxMOEdl9pv', 'EJmtRBPyXNWTUdWJ7ufLp2QApbbZLQJO', 'dbQowNI4tspD24g23hPz7XcpzFwGqE6p',
-'fYQG1lXt9u2BgCAsdp7i_5ELabU8lY_9', '9ASTRoiT24JqQBzyPx7QSJhSzVEzcpgQ', 'ReaesOJdPhkSbqVAKZHhmCEhrODblLXw',
-'SpZFySFjaK30dFGJ32o2TnvlVwR6ZPnu']
+api_keys = []
 
 def call_data_function_with_tickers(tickers, keys):
   """Invoking our get_fucking_data function with sliced list of tickers and API keys"""
@@ -127,14 +124,4 @@ def call_data_function_with_tickers(tickers, keys):
       index += 1
 
 call_data_function_with_tickers(ticker_slices, api_keys)
-# ! NEED 
-# get_fucking_data(option1, 'BKbRifpJKOqo7sbgdiS4dpNgJJbhgA2b')
-# def get_fucking_data(64Pq2r00bGiIMp1p2v5OlW1HyKPqf2Lc, listslice)
-# get_fucking_data(option1, 'qFu3Rz73EdWbzqYWGoW6s2LxMOEdl9pv')
-# get_fucking_data(option1,'EJmtRBPyXNWTUdWJ7ufLp2QApbbZLQJO')
-# def get_fucking_data(dbQowNI4tspD24g23hPz7XcpzFwGqE6p, listslice)
-# def get_fucking_data(fYQG1lXt9u2BgCAsdp7i_5ELabU8lY_9, listslice)
-# def get_fucking_data(9ASTRoiT24JqQBzyPx7QSJhSzVEzcpgQ, listslice)
-# def get_fucking_data(ReaesOJdPhkSbqVAKZHhmCEhrODblLXw, listslice)
-# def get_fucking_data(SpZFySFjaK30dFGJ32o2TnvlVwR6ZPnu, listslice)
-# ! NEED
+

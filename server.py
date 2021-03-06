@@ -30,7 +30,7 @@ def get_all_stocks():
     all_stocks = crud.get_all_stocks(user_id)
     return jsonify(all_stocks)
 
-    
+
 # * ======================================== USER STOCK ROUTES =============================================
 @app.route('/api/get-user-stocks', methods=["POST"])
 def get_user_nominations():
