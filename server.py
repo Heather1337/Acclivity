@@ -17,7 +17,20 @@ def show_homepage(input_path):
 
 
 # * ======================================== STOCK ROUTES ==================================================
+@app.route('/api/get-all-stocks', methods=["POST"])
+def get_all_stocks():
+    '''GET ALL STOCKS'''
 
+    #  GET DATA
+    # ****************************** #
+    data = request.get_json()
+    user_id = data['user_id']
+    # ****************************** #
+
+    all_stocks = crud.get_all_stocks(user_id)
+    return jsonify(all_stocks)
+
+    
 # * ======================================== USER STOCK ROUTES =============================================
 @app.route('/api/get-user-stocks', methods=["POST"])
 def get_user_nominations():
