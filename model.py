@@ -36,6 +36,29 @@ class User(db.Model):
 
 
 
+class UserStock(db.Model):
+    ''' User's stocks'''
+
+    __tablename__ = 'userstocks'
+
+    userstock_id = db.Column(db.Integer,
+                        autoincrement=True,
+                        primary_key=True)
+    user_id = db.Column(db.Integer,
+                        nullable=False,
+                        unique=False)
+    stock_id = db.Column(db.Integer,
+                        nullable=False,
+                        unique=False)
+    date_added = db.Column(db.DateTime,nullable=False)
+    date_modified = db.Column(db.DateTime,nullable=False)
+
+    def __repr__(self):
+        return (f'<User userstock_id={self.userstock_id} user_id={self.user_id} stock_id={self.stock_id} '
+                f' date_added={self.date_added} date_modified={self.date_modified}>')
+
+
+
 class Stock(db.Model):
     """A user."""
 
