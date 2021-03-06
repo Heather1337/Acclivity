@@ -1,0 +1,36 @@
+@media only screen and (min-width: 600px) {
+
+    /* ====================  GLOBAL ============================= */
+    body, html{
+        overflow-x: hidden;
+        overflow-y: hidden;
+        color:#e3d4e6;
+        height:100%;
+        background: linear-gradient(-45deg, #101821, #040506, #101821, #040506);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+    
+
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+    /* #8a8a8a */
+
+    /* ====================  GRID: ROW & COL ============================= */
+
+    .row{
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
