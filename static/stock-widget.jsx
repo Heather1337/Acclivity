@@ -18,36 +18,37 @@ const Stocks = (stock) => {
 //Container for all stock components on page
 const StocksContainer = () => {
 
-    // const [stocks, setStocks] = React.useState([test]);
-    const test = {
-        'symbol': 'AAPL',
-        'name': 'Apple',
-        'price': 300,
-        'interval': 4
-    }
-    const test1 = {
-        'symbol': 'NVDA',
-        'name': 'Nvidia',
-        'price': 100,
-        'interval': 4
-    }
-    const test2 = {
-        'symbol': 'GME',
-        'name': 'Gamestop',
-        'price': 100000,
-        'interval': 4
-    }
+    const [stocks, setStocks] = React.useState([]);
+    // const test = {
+    //     'symbol': 'AAPL',
+    //     'name': 'Apple',
+    //     'price': 300,
+    //     'interval': 4
+    // }
+    // const test1 = {
+    //     'symbol': 'NVDA',
+    //     'name': 'Nvidia',
+    //     'price': 100,
+    //     'interval': 4
+    // }
+    // const test2 = {
+    //     'symbol': 'GME',
+    //     'name': 'Gamestop',
+    //     'price': 100000,
+    //     'interval': 4
+    // }
 
     const stocksArr = [];
-    const stocks = [test1, test1, test2]
+    // const stocks = [test1, test1, test2]
 
-    // React.useEffect(() =>{
-    //     let user_id = user.user_id;
-    //     let data = {user_id};
-    //     fetch('/api/get-all-stocks')
-    //     .then(response => response.json())
-    //     .then(data => setStocks(data));
-    // }, []);
+    React.useEffect(() =>{
+        fetch('/api/get-all-stocks')
+        .then(response => response.json())
+        .then(data => {
+            console.log('here',data)
+            setStocks(data)
+        });
+    }, []);
 
     for(const stock of stocks) {
         console.log(stocks)
