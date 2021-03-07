@@ -111,10 +111,11 @@ def get_user_stocks():
     stock_count = {}
     user_stocks = crud.get_user_stocks(user_id)
     for stock in user_stocks:
-        if stock not in stock_count:
+        print('=====================', stock.stock_id)
+        if stock.stock_id not in stock_count:
             stock_count[stock.stock_id] = 1
         else:
-            stock_count[stock.stock_id] = stock_count[stock.stock_id] + 1
+            stock_count[stock.stock_id] += 1
     print('STOCK COUNT =================================', stock_count)
     return jsonify(stock_count)
 
