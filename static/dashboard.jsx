@@ -34,8 +34,7 @@ function Dashboard(props) {
     for(let i = 0; i < sectorsOccupied.length; i++) {
         if(i < sectorsOccupied.length - 1) sectors.push(<tr>{sectorsOccupied[i]},</tr>)
         else sectors.push(<tr>{sectorsOccupied[i]}</tr>)
-    }
-
+    };
 
     return (
         <Row id="user-dashboard">
