@@ -146,6 +146,7 @@ const StocksContainer = () => {
         stocksArr.push(
         <Row>
             <Col >
+            <Row className="center"><p>{keysArr[i]}</p></Row>
             <Table size="sm" className="sector-table">
                 <thead>
                     <th>Symbol</th>
@@ -163,6 +164,7 @@ const StocksContainer = () => {
             </Table>
             </Col>
             <Col >
+            <Row className="center"><p>{keysArr[i + 1]}</p></Row>
             <Table size="sm" className="sector-table">
                 <thead>
                     <th>Symbol</th>

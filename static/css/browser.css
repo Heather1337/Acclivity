@@ -138,3 +138,8 @@
 .stock-button:hover {
   cursor: pointer;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
