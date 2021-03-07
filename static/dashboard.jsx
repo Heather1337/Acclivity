@@ -34,7 +34,33 @@ function Dashboard() {
 
         <Col>
 
-            <p>
+            <Table size="sm">
+                <tbody>
+                    <tr>
+                    <td>Quarterly Payouts:</td>
+                    <td>{payouts.QuarterlyPayout}</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>Monthly Payouts:</td>
+                    <td>{payouts.MonthlyPayout}</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <td>Other Payouts:</td>
+                    <td>{payouts.OtherPayout}</td>
+                    </tr>
+                    <tr>
+                    <td>Total Annual payout:</td>
+                    <td className="green">{payouts.AnnualPayout}</td>
+                    <td>Total Spent:</td>
+                    <td></td>
+                    <td className="red">{payouts.spent}</td>
+                    </tr>
+                </tbody>
+            </Table>
+
+            {/* <p>
             Quarterly Payouts: {payouts.QuarterlyPayout}
             <br/>
             Monthly Payouts: {payouts.MonthlyPayout}
@@ -45,7 +71,7 @@ function Dashboard() {
             <p>
             Total Spent: <p className="red"> {payouts.spent}</p>
             </p>
-            </p>
+            </p> */}
 
         </Col>
 
