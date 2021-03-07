@@ -24,14 +24,14 @@ def get_portfolio_info():
 
     #  GET DATA
     # ****************************** #
-    # data = request.get_json()
+    data = request.get_json()
     # user_id = data['user_id']
     # ****************************** #
 
-    risk = crud.get_profile_risk(0)
+    # risk = crud.get_profile_risk(0)
     industry_list = crud.get_user_industries(0)
 
-    portfolio = {'PortfolioRisk': risk,
+    portfolio = {'PortfolioRisk': 'High',
                  'Industries': industry_list}
 
     return jsonify(portfolio)

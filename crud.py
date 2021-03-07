@@ -10,6 +10,7 @@ import logging
 def get_profile_risk(user_id):
 
     stock_tuples = get_user_stocks(user_id)
+
     payout_ratio = 0
 
     for stock in stock_tuples:
@@ -25,10 +26,14 @@ def get_profile_risk(user_id):
 
 def get_user_industries(user_id):
 
+    sector_list = []
     stock_tuples = get_user_stocks(user_id)
-    for elem in stock_tuples:
-        return elem.sector
-    print('obv not done')
+    for stock in stock_tuples:
+        stock_info = get_stock_info(stock.stock_id)
+        if stock_info['sector'] not in sector_list:
+            sector_list.append(stock_info['sector'])
+    print(sector_list)
+    return sector_list
 
 
 def get_user_payouts(user_id):
@@ -73,29 +78,35 @@ def get_all_stocks():
 
 # ======================================== USER STOCK ROUTES =============================================
 
+def get_stock_info(stock_id):
+
+    stock = Stock.query.filter(Stock.stock_id == stock_id).first()
+
+    stock_object = {
+            'stock_id':stock.stock_id,
+            'symbol':stock.symbol,
+            'company_name':stock.company_name,
+            'sector':stock.sector,
+            'dividend_yield':stock.dividend_yield,
+            'dividend_amount':stock.dividend_amount,
+            'payout_schedule':stock. payout_schedule,
+            'payout_ratio':stock.payout_ratio,
+            'stock_price':stock.stock_price
+    }
+
+    return(stock_object)
+
+
+
+
 def get_user_stocks(user_id):
     '''RETURN USER'S NOMINATIONS'''
 
-    stock_object_list = []
     # stock_tuples = db.session.query(Stock).select_from(Stock).join(
     #     UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
-    stock_tuples = UserStock.query.filter(UserStock.user_id == user_id).all()
+    user_stocks = UserStock.query.filter(UserStock.user_id == user_id).all()
 
-    for stock in stock_tuples:
-        stock_object = {
-                'stock_id':stock.stock_id,
-                'symbol':stock.symbol,
-                'company_name':stock.company_name,
-                'sector':stock.sector,
-                'dividend_yield':stock.dividend_yield,
-                'dividend_amount':stock.dividend_amount,
-                'payout_schedule':stock. payout_schedule,
-                'payout_ratio':stock.payout_ratio,
-                'stock_price':stock.stock_price
-        }
-        stock_object_list.append(stock_object)
-    # print(stock_tuples)
-    return (stock_object_list)
+    return (user_stocks)
 
 
 def remove_user_stock(user_id, stock_id):
