@@ -25,12 +25,10 @@ stock_data = 'data/Acclivity.csv'
 
 
 # ************************************************************************************
-new_user = User(fname = 'User',
-                lname ='user',
-                email = 'user@gmail.com',
-                password = 'user',
-                date_added = '2020-11-21',
-                date_modified = '2020-11-21')
+new_user = User(fname='User',
+                lname='user',
+                email='user@gmail.com',
+                password='user')
 db.session.add(new_user)
 db.session.commit()
 

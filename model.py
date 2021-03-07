@@ -25,8 +25,8 @@ class User(db.Model):
                       unique=True)
     password = db.Column(db.String,
                          nullable=False)
-    date_added = db.Column(db.DateTime, nullable=False)
-    date_modified = db.Column(db.DateTime, nullable=False)
+    date_added = db.Column(db.DateTime)
+    date_modified = db.Column(db.DateTime)
 
     def __repr__(self):
         return (f'<User user_id={self.user_id} fname ={self.fname} lname={self.lname} '
@@ -68,8 +68,8 @@ class Stock(db.Model):
                        nullable=False,
                        unique=False)
     company_name = db.Column(db.String,
-                       nullable=False,
-                       unique=False)
+                             nullable=False,
+                             unique=False)
     sector = db.Column(db.String,
                        nullable=True,
                        unique=False)

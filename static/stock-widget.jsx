@@ -1,31 +1,5 @@
 "use strict";
 
-const handleStockClick = (e) => {
-    const stock_id = e.target.id;
-    const user_id = 0;
-    const payload = {'stock_id': stock_id, 'user_id': user_id};
-
-    if(e.target.innerText === "+") {
-        console.log("ADDED DIVIDEND");
-        fetch('/api/add-user-stock', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload)
-        })
-        .then(resp => resp.json())
-        .then()
-    }
-    else if(e.target.innerText === "-") {
-        console.log("SUBTRACTED DIVIDEND");
-        fetch('/api/remove_user_stock', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(payload)
-        })
-        .then(resp => resp.json())
-        .then(data => console.log('Removed stock to user account', data))
-    }
-}
 
 //Get all stocks belonging to a User
 const getUserStocks = (setUserStocks) => {
@@ -50,6 +24,32 @@ const Stocks = (stock) => {
     if(stock.ratio < .35) risk = 'Low';
     if(stock.ratio > .35 && stock.ratio < .55) risk = 'Average';
     if(stock.ratio > .55) risk = 'High';
+
+    const handleStockClick = (e) => {
+        const stock_id = e.target.id;
+        const user_id = 0;
+        const payload = {'stock_id': stock_id, 'user_id': user_id};
+        if(e.target.innerText === "+") {
+            console.log("ADDED DIVIDEND");
+            fetch('/api/add-user-stock', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            })
+            .then(resp => resp.json())
+            .then(stock.update())
+        }
+        else if(e.target.innerText === "-") {
+            console.log("SUBTRACTED DIVIDEND");
+            fetch('/api/remove_user_stock', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            })
+            .then(resp => resp.json())
+            .then(stock.update())
+        }
+    }
 
     return (
         <tr className={risk}>
@@ -78,6 +78,16 @@ const StocksContainer = () => {
     const stocksArr = [];
     const sectors = {};
 
+
+    const updateUserStocks = () => {
+        fetch('/api/get-all-stocks')
+        .then(response => response.json())
+        .then(data => {
+            setStocks(data)
+        })
+        .then(getUserStocks(setUserStocks))
+    }
+
     React.useEffect(() =>{
         fetch('/api/get-all-stocks')
         .then(response => response.json())
@@ -99,6 +109,7 @@ const StocksContainer = () => {
                                 id={stock.id}
                                 quantity={quantity}
                                 ratio={stock.payout_ratio}
+                                update={updateUserStocks}
                             />
         if(!sectors[stock.sector]) {
             sectors[stock.sector] = [stockNode]
