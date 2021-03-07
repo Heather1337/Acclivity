@@ -15,6 +15,11 @@
   margin-bottom: 1rem;
   color: #dde1e6;
 }
+#symbol-space{
+  margin-left: 4%;
+  columns: 20px;
+  display: flex;
+}
 
 .table td, .table th {
   /* padding: .75rem; */
