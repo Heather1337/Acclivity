@@ -8,11 +8,23 @@ function Dashboard() {
         <Row id="user-dashboard">
 
         <Col>
-        COLUMN ONE
+            <p>
+            Quarterly Payouts:
+            <br/>
+            Monthly Payouts:
+            <br/>
+            Other Payouts:
+            <br/>
+            Total Annual payout:	Total Spent:
+            </p>
         </Col>
 
         <Col>
-        COLUMN TWO
+            <p>
+                Profile risk level:
+                <br/>
+                Sectors Occupied:
+            </p>
         </Col>
 
         </Row>
