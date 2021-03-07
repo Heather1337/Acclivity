@@ -9,6 +9,19 @@
     color: black;
     background-color: #e3d4e6;
     margin: auto;
+    margin-top:3rem;
+    margin-bottom:3rem;
+  }
+
+  a {
+    color: #dae0e5;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  #bottomnav{
+    color:#e3d4e6;
+    background-color: #040506;
   }
   /* ====================  GLOBAL ============================= */
   body,

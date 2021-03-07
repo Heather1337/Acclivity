@@ -12,22 +12,22 @@ function TopNav({user, setUser}) {
     return (
 
         <React.Fragment>
-            <Navbar>
-                <Link>TOPNAV</Link>
-            </Navbar>
-            {/* <Navbar
+            <Navbar
                 scrolling="true"
                 expand="sm"
                 fixed='top'
                 id='topnav'>
-                <Navbar.Brand>
+                    <Link>
+                    OH HERRO
+                    </Link>
+                {/* <Navbar.Brand>
                     <Link to='/'id='shoppies'>
                     <img id="logo"
-                        src=""
+                        src="https://www.nydailynews.com/resizer/Ee9izZJ1zk1aij0aZ0lwemFgLoQ=/800x553/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/LGGTNSKXKRH6LM53TFE4VDJIYI.jpg"
                         className="d-inline-block align-top"
                         alt="Logo"/>
-                    </Link>
-                </Navbar.Brand>
+                    </Link> */}
+                {/* </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
@@ -38,7 +38,7 @@ function TopNav({user, setUser}) {
                                 </NavDropdown>:''}
                         </Nav>
                     </Navbar.Collapse> */}
-            {/* </Navbar> */}
+            </Navbar>
         </React.Fragment>
     );
 }

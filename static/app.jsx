@@ -16,29 +16,30 @@ function App() {
       <Router>
 
              <TopNav user={user} setUser={setUser}/>
-              <Dashboard/>
-              <StocksContainer user={user} setUser={setUser}/>
+              {/* <Dashboard/> */}
+              {/* <StocksContainer user={user} setUser={setUser}/> */}
 
-          {/* <Switch>
-                  <Route path="/stocks">
+          <Switch>
+                  <Route path="/">
+                      <Dashboard/>
                       <StocksContainer user={user} setUser={setUser}/>
                   </Route>
 
-    //               <Route path='/login'>
-    //                   <Login user={user} setUser={setUser}/>
-    //               </Route>
+                   {/* <Route path='/login'>
+                       <Login user={user} setUser={setUser}/>
+                   </Route>
 
-    //               <Route path='/signup'>
-    //                   <Signup setUser={setUser} user={user}/>
-    //               </Route>
+                   <Route path='/signup'>
+                       <Signup setUser={setUser} user={user}/>
+                   </Route>
 
-    //               <Route path="/">
-    //                   <LandingPage user={user} />
-    //               </Route>
+                   <Route path="/">
+                       <LandingPage user={user} />
+                   </Route> */}
 
-    //       </Switch> */}
+           </Switch>
 
-    {/* //       <Footer/> */}
+            {/* <Footer/> */}
 
       </Router>
 
