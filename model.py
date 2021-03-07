@@ -85,13 +85,11 @@ class Stock(db.Model):
                              nullable=True)
     stock_price = db.Column(db.String,
                             nullable=True)
-    date_added = db.Column(db.DateTime, nullable=False)
-    date_modified = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
         return (f'<Stock symbol={self.symbol} Company Name={self.company_name} dividend_amount={self.dividend_amount} dividend_yield={self.dividend_yield}  '
                 f'payout_ratio={self.payout_ratio} payout_schedule={self.payout_schedule } stock_price={self.stock_price} '
-                f'sector={self.sector} date_added={self.date_added} date_modified={self.date_modified}>')
+                f'sector={self.sector}>')
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///acclivity', echo=True):
