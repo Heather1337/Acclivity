@@ -4,13 +4,15 @@ Created by: Heather Piverotto, Angela Purcell, Bekah McCurry, Jiyoung Yoon
 **************************************************************************************************
   
 UI allows users to view dividend stocks (1,000 data points sourced from two APIs) by sector
-**************************************************************************************************
+
 ![UI for Acclivity](https://media.giphy.com/media/edepEkos9upI3Ig0za/giphy.gif)
+**************************************************************************************************
 
 
 User has the ability to view real time updates when adding/removing dividends from their portfolio
-**************************************************************************************************
+
 ![Real time updates for Dashboard](https://media.giphy.com/media/7ukWQEDmqEInCbPlOR/giphy.gif)
+**************************************************************************************************
 
 
 ## Inspiration
@@ -34,12 +36,15 @@ Successfully parsing through our API response objects and csvs to seed our datab
 Developing such a clean presentation of dividend stock options.
 Creating an effective stock increment/decrement for client profiles.
 
-
 ## What we learned
-Git is a necessary evil.
+We learned a lot about finance! We started this project hoping to clarify things for ourselves as well and were able to learn a lot about where dividends come from, what the represent and how to pick one!
+We also learned that.....
+Finance data is expensive!
+Git is a necessary evil 
 Dynamic graphs are not something we can learn in an hour.
 
 ## What's next for Acclivity
-We'd like to integrate part of our inspiration - twitter posts - to track stocks and companies receiving buzz. Imagine setting up your stock profile to receive alerts if Elon Musk tweets something about a company.
-What financial app is complete without a graph? Employing a dynamic graph that changes with user input would add a welcome visual element of usefulness and user-ease. This could present a visual representation of the user stock dashboard from the top of the page - ie, expected dividend amount/payout, or portfolio diversification.
+- We'd like to integrate part of our inspiration - twitter posts - to track stocks and companies receiving buzz. Imagine setting up your stock profile to receive alerts if Elon Musk tweets something about a company.
+- What financial app is complete without a graph? Employing a dynamic graph that changes with user input would add a welcome visual element of usefulness and user-ease. This could present a visual representation of the user stock dashboard from the top of the page - ie, expected dividend amount/payout, or portfolio diversification.
+- We'd like to pull from more data to aggregate portfolio risk. Right now risk is based off a companies payout ratio(due to time constraints) and moving forward we would like to include things such as industry, etc.
 
