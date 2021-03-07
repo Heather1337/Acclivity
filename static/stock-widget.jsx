@@ -42,27 +42,37 @@ const getUserStocks = (setUserStocks) => {
         setUserStocks(data)
     })
 }
-
+//===========================================================================================================//
 //Build each individual stock node
 const Stocks = (stock) => {
 
     return (
-        <Container className="stock-container">
-            <Row>
-                <Col><p>{stock.symbol}</p></Col>
-                <Col><p>{stock.name}</p></Col>
-                <Col><p>{stock.price}</p></Col>
-                <Col><p>{stock.interval}</p></Col>
-                <Col><p>{stock.dividend_amount}</p></Col>
-                <Col><p>{stock.dividend_yield}</p></Col>
-                <Col><p>{stock.payout_schedule}</p></Col>
-                <Col><p>{stock.quantity}</p></Col>
-                <Col>
-                    <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
-                    <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
-                </Col>
-            </Row>
-        </Container>
+        <tr>
+            <td>{stock.symbol}</td>
+            <td>{stock.name}</td>
+            <td>{stock.price}</td>
+            <td>{stock.interval}</td>
+            <td>{stock.dividend_amount}</td>
+            <td>{stock.dividend_yield}</td>
+            <td>{stock.payout_schedule}</td>
+            <td>{stock.quantity}</td>
+        </tr>
+        // <Container className="stock-container">
+        //     <Row>
+        //         <Col><p>{stock.symbol}</p></Col>
+        //         <Col><p>{stock.name}</p></Col>
+        //         <Col><p>{stock.price}</p></Col>
+        //         <Col><p>{stock.interval}</p></Col>
+        //         <Col><p>{stock.dividend_amount}</p></Col>
+        //         <Col><p>{stock.dividend_yield}</p></Col>
+        //         <Col><p>{stock.payout_schedule}</p></Col>
+        //         <Col><p>{stock.quantity}</p></Col>
+        //         <Col>
+        //             <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
+        //             <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
+        //         </Col>
+        //     </Row>
+        // </Container>
     );
 }
 
@@ -143,13 +153,28 @@ const StocksContainer = () => {
     for(const sector in sectors) {
         console.log('sector: ', sectors)
         stocksArr.push(
-        <Row className={"sector"}>
-            <Col>
-            <Row className="sector-title"><p>{sector}</p></Row>
-            <Row>{headers}</Row>
-            <Container>{sectors[sector]}</Container>
-            </Col>
-        </Row>
+        <Table>
+            <thead>
+                <th>Symbol</th>
+                <th>Stock Name</th>
+                <th>Current Price</th>
+                <th>Interval</th>
+                <th>Dividend</th>
+                <th>Dividend Yield</th>
+                <th>Payout Schedule</th>
+                <th>Quantity</th>
+            </thead>
+            <tbody>
+                {sectors[sector]}
+            </tbody>
+        </Table>
+        // <Row className={"sector"}>
+        //     <Col>
+        //     <Row className="sector-title"><p>{sector}</p></Row>
+        //     <Row>{headers}</Row>
+        //     <Container>{sectors[sector]}</Container>
+        //     </Col>
+        // </Row>
         );
     }
 
