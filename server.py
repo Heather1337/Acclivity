@@ -96,7 +96,7 @@ def get_all_stocks():
                        "id": s.stock_id
                        })
 
-    return jsonify(stocks[:20])
+    return jsonify(stocks[:200])
 
 
 # * ======================================== USER STOCK ROUTES =============================================
