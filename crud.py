@@ -41,7 +41,8 @@ def get_user_payouts(user_id):
 
     stock_tuples = get_user_stocks(user_id)
     for payout in stock_tuples:
-        dividend_amount = float(payout.dividend_yield) * float(payout.stock_price)
+        dividend_amount = float(payout.dividend_yield) * \
+            float(payout.stock_price)
         if payout.payout_schedule == '12':
             monthlyPayout += dividend_amount
         elif payout.payout_schedule == '4':
@@ -83,15 +84,12 @@ def get_user_stocks(user_id):
 
     for stock in stock_tuples:
         stock_object = {
-                'stock_id':stock.stock_id,
-                'symbol':stock.symbol,
-                'company_name':stock.company_name,
-                'sector':stock.sector,
-                'dividend_yield':stock.dividend_yield,
-                'dividend_amount':stock.dividend_amount,
-                'payout_schedule':stock. payout_schedule,
-                'payout_ratio':stock.payout_ratio,
-                'stock_price':stock.stock_price
+            'stock_id': stock.stock_id,
+            'dividend_yield': stock.dividend_yield,
+            'dividend_amount': stock.dividend_amount,
+            'payout_schedule': stock. payout_schedule,
+            'payout_ratio': stock.payout_ratio,
+            'stock_price': stock.stock_price
         }
         stock_object_list.append(stock_object)
     # print(stock_tuples)
