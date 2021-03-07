@@ -74,6 +74,7 @@ def get_all_stocks():
     stocks = []
 
     for s in all_stocks:
+        # logic to swap schedule for a string saying how often
         stocks.append({"symbol": s.symbol,
                        "dividend_amount": s.dividend_amount,
                        "dividend_yield": s.dividend_yield,
