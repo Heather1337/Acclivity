@@ -52,11 +52,4 @@ with open(stock_data, 'r') as file:
     db.session.add(new_user)
     db.session.commit()
 
-    new_userstock = UserStock(user_id = 'user_id',
-                    stock_id ='stock_id',
-                    date_added = '2020-11-21',
-                    date_modified = '2020-11-21')
-    db.session.add(new_userstock)
-    db.session.commit()
-
 # ***************************************************************************
