@@ -67,6 +67,9 @@ class Stock(db.Model):
     symbol = db.Column(db.String,
                        nullable=False,
                        unique=False)
+    company_name = db.Column(db.String,
+                       nullable=False,
+                       unique=False)
     sector = db.Column(db.String,
                        nullable=True,
                        unique=False)
@@ -86,7 +89,7 @@ class Stock(db.Model):
     date_modified = db.Column(db.DateTime, nullable=False)
 
     def __repr__(self):
-        return (f'<Stock symbol={self.symbol} dividend_amount={self.dividend_amount} dividend_yield={self.dividend_yield}  '
+        return (f'<Stock symbol={self.symbol} Company Name={self.company_name} dividend_amount={self.dividend_amount} dividend_yield={self.dividend_yield}  '
                 f'payout_ratio={self.payout_ratio} payout_schedule={self.payout_schedule } stock_price={self.stock_price} '
                 f'sector={self.sector} date_added={self.date_added} date_modified={self.date_modified}>')
 
