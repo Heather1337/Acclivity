@@ -60,13 +60,19 @@ const Stocks = (stock) => {
             <td>{stock.dividend_amount}</td>
             <td>{stock.dividend_yield}</td>
             <td>{stock.payout_schedule}</td>
-            <td>{stock.quantity}</td>
             <td>
+                <td>{stock.quantity}</td>
+                <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>+</td>
+                <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>-</td>
+            </td>
+            {/* <td>
                 <Row className="buttons-row">
                     <p id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>+</p>
                     <p id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>-</p>
                 </Row>
-            </td>
+            </td> */}
+            {/* <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>+</td>
+            <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>-</td> */}
         </tr>
     );
 }
