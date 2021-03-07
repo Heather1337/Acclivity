@@ -24,6 +24,7 @@ const StocksContainer = () => {
 
     const [stocks, setStocks] = React.useState([]);
     const stocksArr = [];
+    const sectors = {};
 
     React.useEffect(() =>{
         fetch('/api/get-all-stocks')
@@ -34,19 +35,43 @@ const StocksContainer = () => {
     }, []);
 
     for(const stock of stocks) {
-        console.log(stock)
-        stocksArr.push(
-            <Stocks
-            symbol={stock.symbol}
-            name={stock.name}
-            sector={stock.sector}
-            dividend_yield={stock.dividend_yield}
-            dividend_amount={stock.dividend_amount}
-            payout_schedule={stock.payout_schedule}
-            price={stock.stock_price}
-            interval={stock.payout_ratio}
-            />
-        );
+        const stockNode =  <Stocks
+                                symbol={stock.symbol}
+                                name={stock.name}
+                                sector={stock.sector}
+                                dividend_yield={stock.dividend_yield}
+                                dividend_amount={stock.dividend_amount}
+                                payout_schedule={stock.payout_schedule}
+                                price={stock.stock_price}
+                                interval={stock.payout_ratio}
+                            />
+        if(!sectors[stock.sector]) {
+            sectors[stock.sector] = [stockNode]
+        }
+        else {
+            sectors[stock.sector].push(stockNode)
+        }
+        // stocksArr.push(
+        //     <Stocks
+        //     symbol={stock.symbol}
+        //     name={stock.name}
+        //     sector={stock.sector}
+        //     dividend_yield={stock.dividend_yield}
+        //     dividend_amount={stock.dividend_amount}
+        //     payout_schedule={stock.payout_schedule}
+        //     price={stock.stock_price}
+        //     interval={stock.payout_ratio}
+        //     />
+        // );
+
+        for(const sector in sectors) {
+            stocksArr.push(
+            <Row className={"sector"}>
+                <Row><p>{sector}</p></Row>
+                {sectors[sector]}
+            </Row>
+            );
+        }
     }
 
     return (

@@ -14,17 +14,13 @@ function App() {
 
       <Router>
 
-<<<<<<< HEAD
              {/* <TopNav user={user} setUser={setUser}/> */}
               {/* <Dashboard/> */}
-              <TopNav user={user} setUser={setUser}/>
-              <Dashboard/>
-              <StocksContainer user={user} setUser={setUser}/>
+              {/* <TopNav user={user} setUser={setUser}/> */}
               {/* <Dashboard/> */}
               {/* <StocksContainer user={user} setUser={setUser}/> */}
-=======
-             <TopNav user={user} setUser={setUser}/>
->>>>>>> fdb62ecd05899bc633bf4e0f65beb8d6f7dcbd7a
+              {/* <Dashboard/> */}
+              {/* <StocksContainer user={user} setUser={setUser}/> */}
 
           <Switch>
                   <Route path="/">

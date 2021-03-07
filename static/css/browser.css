@@ -1,6 +1,5 @@
 @media only screen and (min-width: 600px) {
-
-/* 
+  /* 
   Color hero:
   black : 040506
   Super dark blue: 101821
@@ -10,13 +9,13 @@
   Green: 2ab977
   White: e34ee6 */
 
- /* ====================  IN PROGRESS ============================= */
+  /* ====================  IN PROGRESS ============================= */
 
- .navbar-light .navbar-nav .nav-link {
-  color: #dee2e6;
-}
+  .navbar-light .navbar-nav .nav-link {
+    color: #dee2e6;
+  }
 
-  #user-dashboard{
+  #user-dashboard {
     padding: 1.5rem;
     border-radius: 5px;
     height: 10rem;
@@ -24,8 +23,8 @@
     color: #dae0e5;
     background-color: #1e2633;
     margin: auto;
-    margin-top:3rem;
-    margin-bottom:3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 
   a {
@@ -34,8 +33,8 @@
     background-color: transparent;
   }
 
-  #bottomnav{
-    color:#e3d4e6;
+  #bottomnav {
+    color: #e3d4e6;
     background-color: #040506;
   }
   /* ====================  GLOBAL ============================= */
@@ -70,4 +69,8 @@
     display: flex;
     flex-wrap: wrap;
   } */
+}
+
+.sector {
+  width: 40%;
 }
