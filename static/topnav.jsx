@@ -19,7 +19,7 @@ function TopNav({user, setUser}) {
                 id='topnav'>
                 <Navbar.Brand>
                     <Link to='/'id='Acclivity'>
-                    <img id="logo"
+                    <img id="topnav-logo"
                         src="static/img/logo.png"
                         className="d-inline-block align-top"
                         alt="Logo"/>

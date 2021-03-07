@@ -15,11 +15,12 @@ function App() {
 
       <Router>
 
-             <TopNav user={user} setUser={setUser}/>
+             {/* <TopNav user={user} setUser={setUser}/> */}
 
           <Switch>
-                  <Route exact path="/">
-                        <Dashboard dashboardRefresher={dashboardRefresher}/>
+                  <Route exact path="/home">
+                      <TopNav user={user} setUser={setUser}/>
+                      <Dashboard dashboardRefresher={dashboardRefresher}/>
                       <StocksContainer user={user} setUser={setUser} dashboardRefresher={dashboardRefresher} setDashboardRefresher={setDashboardRefresher}/>
                   </Route>
 
@@ -33,9 +34,9 @@ function App() {
                        <Login user={user} setUser={setUser}/>
                    </Route>
 
-                   {/* <Route path="/">
+                   <Route path="/">
                        <LandingPage user={user} />
-                   </Route> */}
+                   </Route>
 
            </Switch>
 
