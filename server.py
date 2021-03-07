@@ -40,7 +40,7 @@ def get_portfolio_info():
 @app.route('/api/get-all-payouts', methods=["POST"])
 def get_all_payouts():
     '''GET ALL STOCKS'''
-
+    print('CALLING PAYOUTS &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
     #  GET DATA
     # ****************************** #
     data = request.get_json()
@@ -87,7 +87,7 @@ def get_all_stocks():
                        "id": s.stock_id
                        })
 
-    return jsonify(stocks[:200])
+    return jsonify(stocks)
 
 
 # * ======================================== USER STOCK ROUTES =============================================
@@ -169,7 +169,7 @@ def login_user():
     #  GET DATA
     # ****************************** #
     data = request.get_json()
-    print('THISI IS DATA #########################################################################################', data)
+    # print('THISI IS DATA #########################################################################################', data)
     email = data['email']
     password = data['password']
     # ****************************** #
@@ -181,7 +181,7 @@ def login_user():
         return jsonify({'fname': user['fname'], 'id': user['user_id']})
 
     else:
-        print('IS NOT USER')
+        # print('IS NOT USER')
         return jsonify('info does not match')
 
 

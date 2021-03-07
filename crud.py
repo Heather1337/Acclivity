@@ -14,7 +14,7 @@ def get_profile_risk(user_id):
     for stock in stock_tuples:
         stock_info = get_stock_info(stock.stock_id)
         stock_payout_ratio = stock_info['payout_ratio']
-        payout_count +=  float(stock_payout_ratio)
+        payout_count += float(stock_payout_ratio)
 
     payout_ratio = payout_count / len(stock_tuples)
 
@@ -38,6 +38,7 @@ def get_user_industries(user_id):
 
 
 def get_user_payouts(user_id):
+    print('==================== CALLED GET USER PAYOUTS')
 
     quarterlyPayout = 0
     triannualPayout = 0
@@ -54,7 +55,7 @@ def get_user_payouts(user_id):
         dividend_yield = stock_info['dividend_yield']
         dividend_amount = float(stock_info['dividend_amount'])
 
-        if  stock_payout == '3':
+        if stock_payout == '3':
             triannualPayout += dividend_amount
         elif stock_payout == '4':
             quarterlyPayout += dividend_amount
@@ -97,15 +98,15 @@ def get_stock_info(stock_id):
     stock = Stock.query.filter(Stock.stock_id == stock_id).first()
 
     stock_object = {
-            'stock_id':stock.stock_id,
-            'symbol':stock.symbol,
-            'company_name':stock.company_name,
-            'sector':stock.sector,
-            'dividend_yield':stock.dividend_yield,
-            'dividend_amount':stock.dividend_amount,
-            'payout_schedule':stock.payout_schedule,
-            'payout_ratio':stock.payout_ratio,
-            'stock_price':stock.stock_price
+        'stock_id': stock.stock_id,
+        'symbol': stock.symbol,
+        'company_name': stock.company_name,
+        'sector': stock.sector,
+        'dividend_yield': stock.dividend_yield,
+        'dividend_amount': stock.dividend_amount,
+        'payout_schedule': stock.payout_schedule,
+        'payout_ratio': stock.payout_ratio,
+        'stock_price': stock.stock_price
     }
     return(stock_object)
 
