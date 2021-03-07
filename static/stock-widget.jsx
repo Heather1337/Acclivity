@@ -160,7 +160,7 @@ const StocksContainer = () => {
                 <thead>
                     <th>Symbol</th>
                     <th>Company</th>
-                    <th></th>
+                    <th>Price</th>
                     <th>Interval</th>
                     <th>Dividend</th>
                     <th>Yield</th>
@@ -177,7 +177,7 @@ const StocksContainer = () => {
                 <thead>
                     <th>Symbol</th>
                     <th>Company</th>
-                    <th></th>
+                    <th>Price</th>
                     <th>Interval</th>
                     <th>Dividend</th>
                     <th>Yield</th>
