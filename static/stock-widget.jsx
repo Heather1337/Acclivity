@@ -56,23 +56,13 @@ const Stocks = (stock) => {
             <td>{stock.dividend_yield}</td>
             <td>{stock.payout_schedule}</td>
             <td>{stock.quantity}</td>
+            <td>
+                <Row className="buttons-row">
+                    <p id={stock.id} size="sm" className="stock-button" onClick={(e)=>handleStockClick(e)}>+</p>
+                    <p id={stock.id} size="sm" className="stock-button" onClick={(e)=>handleStockClick(e)}>-</p>
+                </Row>
+            </td>
         </tr>
-        // <Container className="stock-container">
-        //     <Row>
-        //         <Col><p>{stock.symbol}</p></Col>
-        //         <Col><p>{stock.name}</p></Col>
-        //         <Col><p>{stock.price}</p></Col>
-        //         <Col><p>{stock.interval}</p></Col>
-        //         <Col><p>{stock.dividend_amount}</p></Col>
-        //         <Col><p>{stock.dividend_yield}</p></Col>
-        //         <Col><p>{stock.payout_schedule}</p></Col>
-        //         <Col><p>{stock.quantity}</p></Col>
-        //         <Col>
-        //             <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
-        //             <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
-        //         </Col>
-        //     </Row>
-        // </Container>
     );
 }
 
@@ -156,15 +146,16 @@ const StocksContainer = () => {
         stocksArr.push(
         <Row>
             <Col >
+            <Row className="center"><p>{keysArr[i]}</p></Row>
             <Table size="sm" className="sector-table">
                 <thead>
                     <th>Symbol</th>
-                    <th>Stock Name</th>
-                    <th>Current Price</th>
+                    <th>Company</th>
+                    <th>Price</th>
                     <th>Interval</th>
                     <th>Dividend</th>
-                    <th>Dividend Yield</th>
-                    <th>Payout Schedule</th>
+                    <th>Yield</th>
+                    <th>Schedule</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
@@ -173,15 +164,16 @@ const StocksContainer = () => {
             </Table>
             </Col>
             <Col >
+            <Row className="center"><p>{keysArr[i + 1]}</p></Row>
             <Table size="sm" className="sector-table">
                 <thead>
                     <th>Symbol</th>
-                    <th>Stock Name</th>
-                    <th>Current Price</th>
+                    <th>Company</th>
+                    <th>Price</th>
                     <th>Interval</th>
                     <th>Dividend</th>
-                    <th>Dividend Yield</th>
-                    <th>Payout Schedule</th>
+                    <th>Yield</th>
+                    <th>Schedule</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
@@ -190,13 +182,6 @@ const StocksContainer = () => {
             </Table>
             </Col>
         </Row>
-        // <Row className={"sector"}>
-        //     <Col>
-        //     <Row className="sector-title"><p>{sector}</p></Row>
-        //     <Row>{headers}</Row>
-        //     <Container>{sectors[sector]}</Container>
-        //     </Col>
-        // </Row>
         );
     }
 

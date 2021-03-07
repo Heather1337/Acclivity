@@ -15,7 +15,7 @@ def get_profile_risk(user_id):
         stock_info = get_stock_info(stock.stock_id)
         stock_payout_ratio = stock_info['payout_ratio']
         payout_count +=  float(stock_payout_ratio)
-    
+        
     payout_ratio = payout_count / len(stock_tuples)
 
     if payout_ratio < .35:
@@ -114,7 +114,6 @@ def get_user_stocks(user_id):
     '''RETURN USER'S STOCKS'''
 
     user_stocks = UserStock.query.filter(UserStock.user_id == user_id).all()
-
     return (user_stocks)
 
 
