@@ -108,9 +108,10 @@ const StocksContainer = () => {
         console.log('sector: ', sectors)
         stocksArr.push(
         <Row>
-            <Col >
+            <Col>
             <Row className="center"><p>{keysArr[i]}</p></Row>
-            <Table size="sm" className="sector-table" responsive="True">
+            <Col className="table-col">
+            <Table size="sm" className="sector-table overflow-hidden" responsive="True">
                 <thead>
                     <th>Symbol</th>
                     <th>Company</th>
@@ -126,9 +127,11 @@ const StocksContainer = () => {
                 </tbody>
             </Table>
             </Col>
+            </Col>
             <Col >
             <Row className="center"><p>{keysArr[i + 1]}</p></Row>
-            <Table size="sm" className="sector-table">
+            <Col className="table-col">
+            <Table size="sm" className="sector-table overflow-hidden">
                 <thead>
                     <th>Symbol</th>
                     <th>Company</th>
@@ -143,6 +146,7 @@ const StocksContainer = () => {
                     {sectors[keysArr[i+1]]}
                 </tbody>
             </Table>
+            </Col>
             </Col>
         </Row>
         );
