@@ -101,17 +101,22 @@ def get_all_stocks():
 
 # * ======================================== USER STOCK ROUTES =============================================
 @app.route('/api/get-user-stocks', methods=["POST"])
-def get_user_nominations():
+def get_user_stocks():
     '''GET USER STOCKS'''
 
-    #  GET DATA
     # ****************************** #
     data = request.get_json()
     user_id = data['user_id']
     # ****************************** #
-
-    user_stocks = crud.get_user_nominations(user_id)
-    return jsonify(user_stocks)
+    stock_count = {}
+    user_stocks = crud.get_user_stocks(user_id)
+    for stock in user_stocks:
+        if stock not in stock_count:
+            stock_count[stock.stock_id] = 1
+        else:
+            stock_count[stock.stock_id] = stock_count[stock.stock_id] + 1
+    print('STOCK COUNT =================================', stock_count)
+    return jsonify(stock_count)
 
 
 @app.route('/api/add-user-stock', methods=["POST"])
@@ -120,7 +125,6 @@ def add_user_stock():
 
     #  GET DATA
     # ****************************** #
-    print('=========================', request.get_json())
     data = request.get_json()
     user_id = data['user_id']
     stock_id = data['stock_id']
@@ -176,7 +180,7 @@ def login_user():
     #  GET DATA
     # ****************************** #
     data = request.get_json()
-    print('THISI IS DATA #########################################################################################',data)
+    print('THISI IS DATA #########################################################################################', data)
     email = data['email']
     password = data['password']
     # ****************************** #

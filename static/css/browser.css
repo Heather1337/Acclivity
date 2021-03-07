@@ -10,41 +10,46 @@
   White: e34ee6 */
 
   /* ====================  IN PROGRESS ============================= */
-.table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #dde1e6;
-}
-
-.table td, .table th {
-  /* padding: .75rem; */
-  vertical-align: top;
-  border-top: 1px solid #dee2e600;
-}
-  .green{
-    color:#2ab977
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #dde1e6;
   }
 
-  .red{
-    color:#e1014A
+  .table td,
+  .table th {
+    /* padding: .75rem; */
+    vertical-align: top;
+    border-top: 1px solid #dee2e600;
   }
 
-  .fixed-top{
+  #symbol-space {
+    margin-left: 4%;
+  }
+  .green {
+    color: #2ab977;
+  }
+
+  .red {
+    color: #e1014a;
+  }
+
+  .fixed-top {
     background: #040506;
     margin-bottom: 2rem;
   }
 
-  .login-signup-row{
+  .login-signup-row {
     height: 100vh;
     width: 100vw;
   }
 
-  #signupform{
+  #signupform {
     width: 30rem;
     margin: auto;
   }
 
-  #loginform{
+  #loginform {
     width: 30rem;
     margin: auto;
   }
