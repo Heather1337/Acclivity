@@ -15,15 +15,15 @@ def get_profile_risk(user_id):
         stock_info = get_stock_info(stock.stock_id)
         stock_payout_ratio = stock_info['payout_ratio']
         payout_count +=  float(stock_payout_ratio)
-        
+
     payout_ratio = payout_count / len(stock_tuples)
 
     if payout_ratio < .35:
-        return ('very low')
+        return ('Low')
     if payout_ratio > .35 and payout_ratio < .55:
-        return ('average')
+        return ('Average')
     if payout_ratio > .55:
-        return ('high')
+        return ('High')
 
 
 def get_user_industries(user_id):
