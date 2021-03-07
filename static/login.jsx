@@ -15,7 +15,7 @@ function Login(props) {
             if (data !== 'info does not match'){
                 props.setUser(data)
                 localStorage.setItem('user',JSON.stringify(data));
-                history.push('/');
+                history.push('/home');
             } else {
                 alert('Invalid Username or Password')
             }

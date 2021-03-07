@@ -4,19 +4,16 @@ function LandingPage() {
 
         <React.Fragment>
 
-        <Row className="landing-page-row">
+        <Row id="landing-page-row">
 
-            <Col id='landing-page'>
+            <Col id='landing-page-logo-column'>
                     <img id="logo"
-                    src="static/img/logo.png"
+                    src="static/img/landing-logo.png"
                     className="d-inline-block align-top"
                     alt="Logo"/>
-            </Col>
 
-            <Col>
-
-                <Button>Login</Button>
-                <Button>Signup</Button>
+                <Button><Link to="/signup">Signup</Link></Button>
+                <Button><Link to="/login">Login</Link></Button>
                 
             </Col>
 

@@ -10,7 +10,12 @@
   White: e34ee6 */
 
   /* ====================  IN PROGRESS ============================= */
-
+  .btn-primary {
+    color: #fff;
+    background-color: #1e2633;
+    border-color: #2ab97736;
+    margin-top: .5rem;
+}
   #landing-page-row{
     height: 100vh;
     width: 100vw;
@@ -18,7 +23,14 @@
     flex-direction:column
   }
 
+ #landing-page-logo-column{
+    padding-top: 20%;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: auto;
   }
+
   #landing-page{
     margin: auto;
   }
