@@ -11,6 +11,11 @@
   White: e34ee6 */
 
  /* ====================  IN PROGRESS ============================= */
+
+ .navbar-light .navbar-nav .nav-link {
+  color: #dee2e6;
+}
+
   #user-dashboard{
     padding: 1.5rem;
     border-radius: 5px;
