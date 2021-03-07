@@ -37,6 +37,7 @@ const Stocks = (stock) => {
             })
             .then(resp => resp.json())
             .then(stock.update())
+            .then(console.log('incrementing calling dash'))
             .then(stock.updateDash(Math.random()))
         }
         else if(e.target.innerText === "-") {
@@ -48,6 +49,7 @@ const Stocks = (stock) => {
             })
             .then(resp => resp.json())
             .then(stock.update())
+            .then(console.log('incrementing calling dash'))
             .then(stock.updateDash(Math.random()))
         }
     }
@@ -66,30 +68,16 @@ const Stocks = (stock) => {
                 <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>+</td>
                 <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>-</td>
             </td>
-            {/* <td>
-                <Row className="buttons-row">
-                    <p id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>+</p>
-                    <p id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>-</p>
-                </Row>
-            </td> */}
-            {/* <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>+</td>
-            <td id={stock.id} size="sm" className="stock-button"  onClick={(e)=>handleStockClick(e)}>-</td> */}
         </tr>
     );
 }
 
-//Container for all stock components on page
 const StocksContainer = (props) => {
 
-    console.log('props from app', props)
-    // const randomNumber = Math.random()
-    // const stateChange = randomNumber.toString()
-    // setDashboardRefresher(stateChange)
     const [stocks, setStocks] = React.useState([]);
     const [userStocks, setUserStocks] = React.useState({});
     const stocksArr = [];
     const sectors = {};
-
 
     const updateUserStocks = () => {
         fetch('/api/get-all-stocks')
@@ -98,7 +86,7 @@ const StocksContainer = (props) => {
             setStocks(data)
         })
         .then(getUserStocks(setUserStocks))
-    }
+    };
 
     React.useEffect(() =>{
         fetch('/api/get-all-stocks')
@@ -130,7 +118,7 @@ const StocksContainer = (props) => {
         else {
             sectors[stock.sector].push(stockNode)
         }
-    }
+    };
 
     const keysArr = Object.keys(sectors);
     for(var i = 0; i < keysArr.length; i+=2) {
@@ -165,7 +153,7 @@ const StocksContainer = (props) => {
                     <th>Symbol</th>
                     <th>Company</th>
                     <th>Price</th>
-                    <th>Interval</th>
+                    <th>Ratio</th>
                     <th>Dividend</th>
                     <th>Yield</th>
                     <th>Schedule</th>
