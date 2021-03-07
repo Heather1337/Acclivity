@@ -75,10 +75,25 @@ def get_all_stocks():
 def get_user_stocks(user_id):
     '''RETURN USER'S NOMINATIONS'''
 
+    stock_object_list = []
     stock_tuples = db.session.query(Stock).select_from(Stock).join(
         UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
 
-    print(stock_tuples)
+    for stock in stock_tuples:
+        stock_object = {
+            'symbol':stock.symbol,
+            'company_name':stock.company_name,
+            'dividend_amount':stock.dividend_amount,
+            'dividend_yield':stock.dividend_yield,
+            'payout_ratio':stock.payout_ratio,
+            'payout_schedule':stock.payout_schedule,
+            'stock_price':stock.stock_price,
+            'stock_price':stock.sector
+        }
+        stock_object_list.append(stock_object)
+
+
+    print(stock_object_list)
     return stock_tuples
 
 

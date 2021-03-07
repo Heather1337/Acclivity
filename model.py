@@ -87,7 +87,7 @@ class Stock(db.Model):
                             nullable=True)
 
     def __repr__(self):
-        return (f'<Stock symbol={self.symbol} Company Name={self.company_name} dividend_amount={self.dividend_amount} dividend_yield={self.dividend_yield}  '
+        return (f'<Stock symbol={self.symbol} CompanyName={self.company_name} dividend_amount={self.dividend_amount} dividend_yield={self.dividend_yield}  '
                 f'payout_ratio={self.payout_ratio} payout_schedule={self.payout_schedule } stock_price={self.stock_price} '
                 f'sector={self.sector}>')
 
