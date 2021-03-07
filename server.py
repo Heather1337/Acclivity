@@ -47,7 +47,7 @@ def get_all_payouts():
     user_id = data['user_id']
     # ****************************** #
     payouts = crud.get_user_payouts(user_id)
-    print('DONE &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&',payouts)
+    print('DONE &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&', payouts)
     return jsonify(payouts)
 
 

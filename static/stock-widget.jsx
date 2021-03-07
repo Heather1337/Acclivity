@@ -110,7 +110,7 @@ const StocksContainer = () => {
         <Row>
             <Col >
             <Row className="center"><p>{keysArr[i]}</p></Row>
-            <Table size="sm" className="sector-table">
+            <Table size="sm" className="sector-table" responsive="True">
                 <thead>
                     <th>Symbol</th>
                     <th>Company</th>
