@@ -11,6 +11,32 @@
 
   /* ====================  IN PROGRESS ============================= */
 
+  .fixed-top{
+    background: #040506;
+    margin-bottom: 2rem;
+  }
+  
+  .login-signup-row{
+    height: 100vh;
+    width: 100vh;
+  }
+
+  #signupform{
+    width: 30rem;
+    margin: auto;
+  }
+
+  #loginform{
+    margin-top:80%
+  }
+
+  #signup-column{
+    height: 100vh;
+  }
+
+  #login-column{
+    height: 100vh;
+  }
   .navbar-light .navbar-nav .nav-link {
     color: #dee2e6;
   }
@@ -23,7 +49,7 @@
     color: #dae0e5;
     background-color: #1e2633;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-bottom: 3rem;
   }
 
