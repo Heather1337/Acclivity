@@ -73,10 +73,6 @@ const StocksContainer = () => {
     const [userStocks, setUserStocks] = React.useState({});
     const stocksArr = [];
     const sectors = {};
-<<<<<<< HEAD
-
-=======
->>>>>>> 6a9e3195855f6487fcef8201559c10c5e751fad1
     const headers = <Row id = "symbol-space">
             <Col><p>Symbol</p></Col>
             <Col><p>Stock Name</p></Col>
