@@ -113,7 +113,7 @@ def get_user_nominations():
     return jsonify(user_stocks)
 
 
-@app.route('/api/set-user-stocks', methods=["POST"])
+@app.route('/api/add-user-stock', methods=["POST"])
 def add_user_stock():
     '''TOGGLE MOVIE NOMINATION STATUS'''
 
@@ -129,7 +129,7 @@ def add_user_stock():
     return jsonify('stock added')
 
 
-@app.route('/api/set_user_stock', methods=["POST"])
+@app.route('/api/remove_user_stock', methods=["POST"])
 def remove_user_stock():
     '''REMOVE STOCK FROM USER'''
 
