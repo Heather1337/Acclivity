@@ -46,11 +46,9 @@ with open('data/symbols.csv', 'r') as file:
         if symbol in stocks:
             stocks[symbol]["company_name"] = row["Company Name"]
             stocks[symbol]["sector"] = row["Sector"]
-            stocks[symbol]["payout_ratio"]: row["Dividend Payout Ratio"].strip()
-            if "Dividend Yield" in row:
-                stocks[symbol]["dividend_yield"]: row["Dividend Yield"].strip()
-            else:
-                stocks[symbol]["dividend_yield"] = 0
+            stocks[symbol]["payout_ratio"] = row["Dividend Payout Ratio"].strip()
+            stocks[symbol]["dividend_yield"] = row["Dividend Yield"].strip()
+
 
 for stock in stocks:
     print('stock', stocks[stock])
@@ -59,7 +57,7 @@ for stock in stocks:
         stock]['payout_schedule'], payout_ratio=stocks[stock]['payout_ratio'],
         stock_price=stocks[stock]['stock_price'])
 
-    db.session.add(stock)
+    db.session.add(ticker)
     db.session.commit()
     # stock = Stock(symbol=row['Ticker Symbol'].strip(),
     #               sector='fillinlater',
