@@ -1,24 +1,22 @@
 "use strict";
 
 //Build each individual stock node
-function Stocks(stock) {
+const Stocks = (stock) => {
 
     return (
 
-      <React.Fragment>
-          <Row>
-              <Col><p>{stock.symbol}</p></Col>
-              <Col><p>{stock.name}</p></Col>
-              <Col><p>{stock.price}</p></Col>
-              <Col><p>{stock.interval}</p></Col>
-          </Row>
-      </React.Fragment>
+        <Row>
+            <Col><p>{stock.symbol}</p></Col>
+            <Col><p>{stock.name}</p></Col>
+            <Col><p>{stock.price}</p></Col>
+            <Col><p>{stock.interval}</p></Col>
+        </Row>
 
     );
 }
 
 //Container for all stock components on page
-function StocksContainer() {
+const StocksContainer = () => {
 
     // const [stocks, setStocks] = React.useState([test]);
     const test = {
@@ -27,8 +25,21 @@ function StocksContainer() {
         'price': 300,
         'interval': 4
     }
+    const test1 = {
+        'symbol': 'NVDA',
+        'name': 'Nvidia',
+        'price': 100,
+        'interval': 4
+    }
+    const test2 = {
+        'symbol': 'GME',
+        'name': 'Gamestop',
+        'price': 100000,
+        'interval': 4
+    }
+
     const stocksArr = [];
-    const stocks = [test]
+    const stocks = [test1, test1, test2]
 
     // React.useEffect(() =>{
     //     let user_id = user.user_id;
@@ -55,10 +66,12 @@ function StocksContainer() {
             />
         );
     }
+    console.log(stocksArr)
 
     return (
         <Col>
-        {stocksArr}
+        <h3>Financial</h3>
+        <Container>{stocksArr}</Container>
         </Col>
     )
 
