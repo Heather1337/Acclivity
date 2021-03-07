@@ -7,6 +7,7 @@ function Login(props) {
     function handleSubmit(evt) {
         evt.preventDefault();
         let data = {email:email, password:password};
+        console.log(data)
         fetch('/api/login',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())

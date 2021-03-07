@@ -19,7 +19,7 @@
 .table td, .table th {
   /* padding: .75rem; */
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e600;
 }
   .green{
     color:#2ab977
@@ -54,7 +54,7 @@
   }
 
   #user-dashboard {
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 5px;
     height: 10rem;
     width: 95%;
