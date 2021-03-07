@@ -106,11 +106,8 @@
 }
 
 .sector {
-  width: 40%;
   border: 1px solid #dae0e5;
   border-radius: 1%;
-}
-
-.stock {
-  width: 10%;
+  display: flex;
+  justify-content: center;
 }

@@ -4,18 +4,18 @@
 const Stocks = (stock) => {
 
     return (
-
-        <Row>
-            <Col sm={1}><p>{stock.symbol}</p></Col>
-            <Col sm={1}><p>{stock.name}</p></Col>
-            <Col sm={1}><p>{stock.price}</p></Col>
-            <Col sm={1}><p>{stock.interval}</p></Col>
-            <Col sm={1}><p>{stock.dividend_amount}</p></Col>
-            <Col sm={1}><p>{stock.dividend_yield}</p></Col>
-            <Col sm={1}><p>{stock.payout_schedule}</p></Col>
-            <Col sm={1}><p>{stock.sector}</p></Col>
-        </Row>
-
+        <Container className="stock-container">
+            <Row>
+                <Col><p>{stock.symbol}</p></Col>
+                <Col><p>{stock.name}</p></Col>
+                <Col><p>{stock.price}</p></Col>
+                <Col><p>{stock.interval}</p></Col>
+                <Col><p>{stock.dividend_amount}</p></Col>
+                <Col><p>{stock.dividend_yield}</p></Col>
+                <Col><p>{stock.payout_schedule}</p></Col>
+                <Col><p>{stock.sector}</p></Col>
+            </Row>
+        </Container>
     );
 }
 
@@ -51,27 +51,16 @@ const StocksContainer = () => {
         else {
             sectors[stock.sector].push(stockNode)
         }
-        // stocksArr.push(
-        //     <Stocks
-        //     symbol={stock.symbol}
-        //     name={stock.name}
-        //     sector={stock.sector}
-        //     dividend_yield={stock.dividend_yield}
-        //     dividend_amount={stock.dividend_amount}
-        //     payout_schedule={stock.payout_schedule}
-        //     price={stock.stock_price}
-        //     interval={stock.payout_ratio}
-        //     />
-        // );
+    }
 
-        for(const sector in sectors) {
-            stocksArr.push(
-            <Row className={"sector"}>
-                <Row><p>{sector}</p></Row>
-                <Row>{sectors[sector]}</Row>
-            </Row>
-            );
-        }
+    for(const sector in sectors) {
+        console.log('sector: ', sectors)
+        stocksArr.push(
+        <Row className={"sector"}>
+            <Row className="sector-title"><p>{sector}</p></Row>
+            <Container>{sectors[sector]}</Container>
+        </Row>
+        );
     }
 
     return (
