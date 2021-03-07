@@ -153,7 +153,7 @@ const StocksContainer = (props) => {
                     <th>Symbol</th>
                     <th>Company</th>
                     <th>Price</th>
-                    <th>Interval</th>
+                    <th>Ratio</th>
                     <th>Dividend</th>
                     <th>Yield</th>
                     <th>Schedule</th>
