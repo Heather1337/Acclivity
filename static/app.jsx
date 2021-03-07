@@ -15,8 +15,6 @@ function App() {
 
       <Router>
 
-             {/* <TopNav user={user} setUser={setUser}/> */}
-
           <Switch>
                   <Route exact path="/home">
                       <TopNav user={user} setUser={setUser}/>
@@ -39,8 +37,6 @@ function App() {
                    </Route>
 
            </Switch>
-
-            {/* <Footer/> */}
 
       </Router>
 

@@ -20,6 +20,7 @@ function Dashboard(props) {
         });
     },[stock])
 
+
     React.useEffect(() =>{
         let user_id = props.user? props.user.id:'0';
         let data = {user_id};
@@ -32,11 +33,13 @@ function Dashboard(props) {
         });
     },[stock]);
 
+
     const sectors = [];
     for(let i = 0; i < sectorsOccupied.length; i++) {
         if(i < sectorsOccupied.length - 1) sectors.push(<tr>{sectorsOccupied[i]},</tr>)
         else sectors.push(<tr>{sectorsOccupied[i]}</tr>)
     };
+
 
     return (
         <Row id="user-dashboard">
