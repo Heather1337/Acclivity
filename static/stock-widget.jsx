@@ -68,6 +68,32 @@ const Stocks = (stock) => {
 
 //Container for all stock components on page
 const StocksContainer = () => {
+    const handleStockClick = (e) => {
+        const stock_id = e.target.id;
+        const user_id = 0;
+        const payload = {'stock_id': stock_id, 'user_id': user_id}
+    
+        if(e.target.innerText === "+") {
+            console.log("ADDED DIVIDEND");
+            fetch('/api/add-user-stock', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            })
+            .then(resp => resp.json())
+            .then(getUserStocks(setUserStocks))
+        }
+        else if(e.target.innerText === "-") {
+            console.log("SUBTRACTED DIVIDEND");
+            fetch('/api/remove_user_stock', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            })
+            .then(resp => resp.json())
+            .then(getUserStocks(setUserStocks))
+        }
+    }
 
     const [stocks, setStocks] = React.useState([]);
     const [userStocks, setUserStocks] = React.useState({});

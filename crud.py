@@ -76,8 +76,9 @@ def get_user_stocks(user_id):
     '''RETURN USER'S NOMINATIONS'''
 
     stock_object_list = []
-    stock_tuples = db.session.query(Stock).select_from(Stock).join(
-        UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
+    # stock_tuples = db.session.query(Stock).select_from(Stock).join(
+    #     UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
+    stock_tuples = UserStock.query.filter(UserStock.user_id == user_id).all()
 
     return stock_tuples
 
