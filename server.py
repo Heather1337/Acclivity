@@ -47,17 +47,8 @@ def get_all_payouts():
     user_id = data['user_id']
     # ****************************** #
     payouts = crud.get_user_payouts(user_id)
-    payouts_list = []
-
-    for payout in payouts:
-        payouts.append({'QuarterlyPayout': payout.QuarterlyPayout,
-                        'MonthlyPayout': payout.MonthlyPayout,
-                        'OtherPayout': payout.OtherPayout,
-                        'AnnualPayout': payout.AnnualPayout,
-                        'spent': payout.spent
-                        })
-
-    return jsonify(payouts_list)
+    print('DONE &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&',payouts)
+    return jsonify(payouts)
 
 
 # * ======================================== STOCK ROUTES ==================================================

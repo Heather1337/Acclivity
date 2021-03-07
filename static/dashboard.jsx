@@ -3,7 +3,7 @@
 //Container for all stock components on page
 function Dashboard(props) {
 
-    const [payouts, setPayouts] = React.useState({QuarterlyPayout: 0, MonthlyPayout:0, OtherPayout:0, AnnualPayout:0, spent:0});
+    const [payouts, setPayouts] = React.useState({QuarterlyPayout: 0, triannualPayout:0, OtherPayout:0, AnnualPayout:0, spent:0});
     const [portfolioRisk, setPortfolioRisk] = React.useState('None');
     const [sectorsOccupied, setSectorsOccupied] = React.useState([]);
 
@@ -15,8 +15,8 @@ function Dashboard(props) {
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {
-            console.log('here',data)
-            // setPayouts(data)
+            // console.log('here',data)
+            setPayouts(data)
         });
     },[]);
 
@@ -27,8 +27,8 @@ function Dashboard(props) {
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {
-            console.log('here',data)
-            setProfileRisk(data['PortfolioRisk'])
+            // console.log('here',data)
+            setPortfolioRisk(data['PortfolioRisk'])
             setSectorsOccupied(data['Industries'])
         });
     },[]);
@@ -47,8 +47,8 @@ function Dashboard(props) {
                     <td></td>
                     </tr>
                     <tr>
-                    <td>Monthly Income:</td>
-                    <td>{payouts.MonthlyPayout}</td>
+                    <td>Triannual Income:</td>
+                    <td>{payouts.triannualPayout}</td>
                     <td></td>
                     </tr>
                     <tr>

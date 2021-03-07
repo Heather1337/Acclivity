@@ -14,7 +14,6 @@ def get_profile_risk(user_id):
     for stock in stock_tuples:
         stock_info = get_stock_info(stock.stock_id)
         stock_payout_ratio = stock_info['payout_ratio']
-        print(stock_info['payout_ratio'])
         payout_count +=  float(stock_payout_ratio)
     
     payout_ratio = payout_count / len(stock_tuples)
@@ -35,37 +34,48 @@ def get_user_industries(user_id):
         stock_info = get_stock_info(stock.stock_id)
         if stock_info['sector'] not in sector_list:
             sector_list.append(stock_info['sector'])
-    print(sector_list)
     return sector_list
 
 
 def get_user_payouts(user_id):
 
     quarterlyPayout = 0
-    monthlyPayout = 0
+    triannualPayout = 0
     otherPayout = 0
     AnnualPayout = 0
     spent = 0
+    other_amount = 0
 
     stock_tuples = get_user_stocks(user_id)
-    for payout in stock_tuples:
-        dividend_amount = float(payout.dividend_yield) * \
-            float(payout.stock_price)
-        if payout.payout_schedule == '12':
-            monthlyPayout += dividend_amount
-        elif payout.payout_schedule == '4':
+    for stock in stock_tuples:
+        stock_info = get_stock_info(stock.stock_id)
+        stock_payout = stock_info['payout_schedule']
+        stock_price = stock_info['stock_price']
+        dividend_yield = stock_info['dividend_yield']
+        dividend_amount = float(stock_info['dividend_amount'])
+
+        if  stock_payout == '3':
+            triannualPayout += dividend_amount
+        elif stock_payout == '4':
             quarterlyPayout += dividend_amount
-        elif payout.payout_schedule == '1':
+        elif stock_payout == '1':
             AnnualPayout += dividend_amount
         else:
-            otherPayout += dividend_amount
+            other_amount = dividend_amount * float(stock_payout)
+            otherPayout += other_amount
 
-        AnnualPayout += monthlyPayout * 12
+        AnnualPayout += other_amount
+        AnnualPayout += triannualPayout * 4
         AnnualPayout += quarterlyPayout * 4
 
-        spent += float(payout.stock_price)
+        spent += float(stock_price)
 
-    return [quarterlyPayout, monthlyPayout, otherPayout, AnnualPayout]
+    return {'QuarterlyPayout': quarterlyPayout,
+            'triannualPayout': triannualPayout,
+            'OtherPayout': otherPayout,
+            'AnnualPayout':  AnnualPayout,
+            'spent': spent
+            }
 
 
 # ======================================== STOCK ROUTES =============================================
@@ -93,39 +103,19 @@ def get_stock_info(stock_id):
             'sector':stock.sector,
             'dividend_yield':stock.dividend_yield,
             'dividend_amount':stock.dividend_amount,
-            'payout_schedule':stock. payout_schedule,
+            'payout_schedule':stock.payout_schedule,
             'payout_ratio':stock.payout_ratio,
             'stock_price':stock.stock_price
     }
-
     return(stock_object)
 
 
-
-
 def get_user_stocks(user_id):
-    '''RETURN USER'S NOMINATIONS'''
+    '''RETURN USER'S STOCKS'''
 
-    # stock_tuples = db.session.query(Stock).select_from(Stock).join(
-    #     UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
     user_stocks = UserStock.query.filter(UserStock.user_id == user_id).all()
 
-<<<<<<< HEAD
-    for stock in stock_tuples:
-        stock_object = {
-            'stock_id': stock.stock_id,
-            'dividend_yield': stock.dividend_yield,
-            'dividend_amount': stock.dividend_amount,
-            'payout_schedule': stock. payout_schedule,
-            'payout_ratio': stock.payout_ratio,
-            'stock_price': stock.stock_price
-        }
-        stock_object_list.append(stock_object)
-    # print(stock_tuples)
-    return (stock_object_list)
-=======
     return (user_stocks)
->>>>>>> 9aa534ace4501e26b3edaa341fc15d50bb6796d1
 
 
 def remove_user_stock(user_id, stock_id):
