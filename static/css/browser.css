@@ -108,12 +108,6 @@
   /* #8a8a8a */
 
   /* ====================  GRID: ROW & COL ============================= */
-
-  /* .row {
-    height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-  } */
 }
 
 .sector {
@@ -124,8 +118,8 @@
 }
 
 .sector-table {
-  padding: 0%;
-  font-size: 10px;
+  /* padding: 0%; */
+  font-size: 12px;
 }
 
 .table-col {
@@ -136,8 +130,8 @@
 }
 
 .stock-button {
-  font-size: 12px;
-  color: #17a2b8;
+  font-size: 15px;
+  color: #f6feff;
   padding: 2px;
   padding-top: 0px;
 }
@@ -153,5 +147,17 @@
 }
 
 tr:hover {
-  color: #17a2b8;
+  background-color: #24334b;
+}
+
+.Average {
+  color: rgba(242, 121, 53);
+}
+
+.High {
+  color: rgba(255, 8, 37);
+}
+
+.Low {
+  color: rgb(60, 179, 113);
 }
