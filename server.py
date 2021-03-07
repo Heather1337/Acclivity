@@ -172,9 +172,11 @@ def login_user():
     is_user = crud.validate_user(password, email)
 
     if is_user:
-        return jsonify({'fname': user['fname'], 'id': user['user_id'], 'submission_status': user['submission_status']})
+        print('IS USER')
+        return jsonify({'fname': user['fname'], 'id': user['user_id']})
 
     else:
+        print('IS NOT USER')
         return jsonify('info does not match')
 
 
