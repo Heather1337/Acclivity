@@ -17,6 +17,25 @@ def show_homepage(input_path):
 
 # * ======================================== DASHBOARD ROUTES ==================================================
 
+@app.route('/api/get-profile-info', methods=["POST"])
+def get_portfolio_info():
+    '''GET ALL STOCKS'''
+
+    #  GET DATA
+    # ****************************** #
+    # data = request.get_json()
+    # user_id = data['user_id']
+    # ****************************** #
+
+    risk = crud.get_profile_risk(0)
+    industry_list = crud.get_user_industries(0)
+
+    portfolio = {'PortfolioRisk':risk,
+                'Industries': industry_list}
+
+    return jsonify(portfolio)
+
+
 @app.route('/api/get-all-payouts', methods=["POST"])
 def get_all_payouts():
     '''GET ALL STOCKS'''

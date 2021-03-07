@@ -7,6 +7,30 @@ import logging
 
 
 # ======================================== DASHBOARD ROUTES =============================================
+def get_profile_risk(user_id):
+
+    stock_tuples = get_user_stocks(user_id)
+    payout_ratio = 0
+
+    for stock in stock_tuples:
+        payout_ratio += stock.payout_ratio
+
+    if payout_ratio < 35 :
+        return ('very low')
+    if payout_ratio > 35 and payout_ratio < 55:
+        return ('average')
+    if payout_ratio > 55:
+        return ('high')
+
+
+
+def get_user_industries(user_id):
+
+    stock_tuples = get_user_stocks(user_id)
+
+    print('obv not done')
+
+
 def get_user_payouts(user_id):
 
     quarterlyPayout = 0
@@ -15,8 +39,8 @@ def get_user_payouts(user_id):
     AnnualPayout = 0
     spent = 0 
 
-    payout_tuples = db.session.query(Stock).select_from(Stock).join(UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
-    for payout in payout_tuples:
+    stock_tuples = get_user_stocks(user_id)
+    for payout in stock_tuples:
         dividend_amount = payout.dividend_yield * payout.stock_price
         if payout.schedule == 'monthly':
             monthlyPayout += dividend_amount
@@ -52,12 +76,9 @@ def get_all_stocks():
 def get_user_stocks(user_id):
     '''RETURN USER'S NOMINATIONS'''
 
-    stock_object_list = []
-    # ! we need a table join query here
-    User_Stock_list = UserStock.query.filter(
-        UserStock.user_id == user_id).all()
+    stock_tuples = db.session.query(Stock).select_from(Stock).join(UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
 
-    return stock_object_list
+    return stock_tuples
 
 
 def remove_user_stock(user_id, stock_id):

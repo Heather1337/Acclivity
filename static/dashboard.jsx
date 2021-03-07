@@ -4,7 +4,7 @@
 function Dashboard() {
 
     const [payouts, setPayouts] = React.useState({QuarterlyPayout: 0, MonthlyPayout:0, OtherPayout:0, AnnualPayout:0, spent:0});
-    const [profileRisk, setProfileRisk] = React.useState('');
+    const [portfolioeRisk, setPortfolioRisk] = React.useState('None');
     const [sectorsOccupied, setSectorsOccupied] = React.useState(['test1','test2','test2']);
 
 
