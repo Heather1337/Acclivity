@@ -78,8 +78,8 @@ def get_user_stocks(user_id):
 
     stock_tuples = db.session.query(Stock).select_from(Stock).join(UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
 
+    print(stock_tuples)
     return stock_tuples
-
 
 def remove_user_stock(user_id, stock_id):
     '''REMOVE NOMINATION'''
@@ -89,7 +89,6 @@ def remove_user_stock(user_id, stock_id):
 
     db.session.delete(stock)
     db.session.commit()
-
 
 def add_user_stock(user_id, stock_id):
     '''ADD NOMINATION'''

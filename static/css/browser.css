@@ -11,6 +11,11 @@
 
   /* ====================  IN PROGRESS ============================= */
 
+  .fixed-top{
+    background: #040506;
+    margin-bottom: 2rem;
+  }
+  
   .login-signup-row{
     height: 100vh;
     width: 100vh;
@@ -44,7 +49,7 @@
     color: #dae0e5;
     background-color: #1e2633;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-bottom: 3rem;
   }
 
@@ -61,8 +66,8 @@
   /* ====================  GLOBAL ============================= */
   body,
   html {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
     color: #e3d4e6;
     height: 100%;
     background: linear-gradient(-45deg, #101821, #040506, #101821, #040506);
