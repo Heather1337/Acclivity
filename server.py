@@ -111,12 +111,10 @@ def get_user_stocks():
     stock_count = {}
     user_stocks = crud.get_user_stocks(user_id)
     for stock in user_stocks:
-        print('=====================', stock.stock_id)
         if stock.stock_id not in stock_count:
             stock_count[stock.stock_id] = 1
         else:
             stock_count[stock.stock_id] += 1
-    print('STOCK COUNT =================================', stock_count)
     return jsonify(stock_count)
 
 
@@ -147,8 +145,7 @@ def remove_user_stock():
     stock_id = data['stock_id']
     # ****************************** #
 
-    #  REMOVE STOCK
-    # stock_remove = crud.remove_user_stock(user_id, stock_id)
+    stock_remove = crud.remove_user_stock(user_id, stock_id)
     return jsonify('stock_removed')
 # *============================================= USER ACCOUNT ROUTES =============================================
 
