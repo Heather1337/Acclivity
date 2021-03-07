@@ -13,4 +13,4 @@
 ## What's next for Acclivity
 'test'
 
-<iframe src="https://giphy.com/embed/edepEkos9upI3Ig0za" width="480" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/edepEkos9upI3Ig0za">via GIPHY</a></p>
+![UI for Acclivity](https://media.giphy.com/media/edepEkos9upI3Ig0za/giphy.gif)
