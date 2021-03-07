@@ -9,18 +9,21 @@ import logging
 # ======================================== DASHBOARD ROUTES =============================================
 def get_profile_risk(user_id):
 
+    payout_count = 0
     stock_tuples = get_user_stocks(user_id)
-
-    payout_ratio = 0
-
     for stock in stock_tuples:
-        payout_ratio += float(stock.payout_ratio)
+        stock_info = get_stock_info(stock.stock_id)
+        stock_payout_ratio = stock_info['payout_ratio']
+        print(stock_info['payout_ratio'])
+        payout_count +=  float(stock_payout_ratio)
+    
+    payout_ratio = payout_count / len(stock_tuples)
 
-    if payout_ratio < 35:
+    if payout_ratio < .35:
         return ('very low')
-    if payout_ratio > 35 and payout_ratio < 55:
+    if payout_ratio > .35 and payout_ratio < .55:
         return ('average')
-    if payout_ratio > 55:
+    if payout_ratio > .55:
         return ('high')
 
 
