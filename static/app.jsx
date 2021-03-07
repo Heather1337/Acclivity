@@ -3,6 +3,7 @@
 
 function App() {
     const [user, setUser] = React.useState(undefined)
+    const [dashboardRefresher, setDashboardRefresher] = React.useState('htisis asthin')
 
     React.useEffect(() => {
       const currentuser = JSON.parse(localStorage.getItem('user'));
@@ -18,8 +19,8 @@ function App() {
 
           <Switch>
                   <Route exact path="/">
-                      <Dashboard/>
-                      <StocksContainer user={user} setUser={setUser}/>
+                        <Dashboard dashboardRefresher={dashboardRefresher}/>
+                      <StocksContainer user={user} setUser={setUser} dashboardRefresher={dashboardRefresher} setDashboardRefresher={setDashboardRefresher}/>
                   </Route>
 
 

@@ -1,5 +1,4 @@
 "use strict";
-
 const handleStockClick = (e) => {
     const stock_id = e.target.id;
     const user_id = 0;
@@ -67,7 +66,12 @@ const Stocks = (stock) => {
 }
 
 //Container for all stock components on page
-const StocksContainer = () => {
+const StocksContainer = (props) => {
+
+    console.log(props)
+    // const randomNumber = Math.random()
+    // const stateChange = randomNumber.toString()
+    // setDashboardRefresher(stateChange)
     const [stocks, setStocks] = React.useState([]);
     const [userStocks, setUserStocks] = React.useState({});
     const stocksArr = [];
@@ -154,7 +158,9 @@ const StocksContainer = () => {
 
     return (
         <Col>
-        <Container>{stocksArr}</Container>
+            <Container>
+            {stocksArr}
+            </Container>
         </Col>
     )
 
