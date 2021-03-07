@@ -4,7 +4,7 @@
 function Dashboard() {
 
     const [payouts, setPayouts] = React.useState({QuarterlyPayout: 0, MonthlyPayout:0, OtherPayout:0, AnnualPayout:0, spent:0});
-    const [portfolioeRisk, setPortfolioRisk] = React.useState('None');
+    const [portfolioRisk, setPortfolioRisk] = React.useState('None');
     const [sectorsOccupied, setSectorsOccupied] = React.useState(['test1','test2','test2']);
 
 
@@ -33,6 +33,7 @@ function Dashboard() {
         <Row id="user-dashboard">
 
         <Col>
+
             <p>
             Quarterly Payouts: {payouts.QuarterlyPayout}
             <br/>
@@ -40,13 +41,17 @@ function Dashboard() {
             <br/>
             Other Payouts: {payouts.OtherPayout}
             <br/>
-            Total Annual payout: {payouts.AnnualPayout}	Total Spent: {payouts.spent}
+            Total Annual payout: <p className="green">{payouts.AnnualPayout}</p>
+            <p>
+            Total Spent: <p>className="red">{payouts.spent}</p>
             </p>
+            </p>
+
         </Col>
 
         <Col>
             <p>
-                Profile risk level:
+                Profile risk level:<p className={portfolioRisk === 'High'?  "red" : "green"}>{portfolioRisk} </p>
                 <br/>
                 Sectors Occupied: {sectorsOccupied}
             </p>

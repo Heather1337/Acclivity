@@ -11,11 +11,19 @@
 
   /* ====================  IN PROGRESS ============================= */
 
+  .green{
+    color:#2ab977
+  }
+
+  .red{
+    color:#e1014A
+  }
+  
   .fixed-top{
     background: #040506;
     margin-bottom: 2rem;
   }
-  
+
   .login-signup-row{
     height: 100vh;
     width: 100vh;
