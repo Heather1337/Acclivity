@@ -7,6 +7,8 @@ function Signup({setUser}) {
   const [lname, setLname] = React.useState('')
   const history = useHistory();
 
+
+
   function handleSubmit(evt){
     evt.preventDefault()
     let data = {email:email, password:password, fname:fname, lname:lname}
@@ -63,6 +65,9 @@ function Signup({setUser}) {
                             type="submit">
                             Register
                     </Button>
+                    <Link to='/login'>
+                      Login
+                    </Link>
                 </Form>
             </Row>
         </React.Fragment>
