@@ -81,7 +81,21 @@ def get_user_stocks(user_id):
     #     UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
     stock_tuples = UserStock.query.filter(UserStock.user_id == user_id).all()
 
-    return stock_tuples
+    for stock in stock_tuples:
+        stock_object = {
+                'stock_id':stock.stock_id,
+                'symbol':stock.symbol,
+                'company_name':stock.company_name,
+                'sector':stock.sector,
+                'dividend_yield':stock.dividend_yield,
+                'dividend_amount':stock.dividend_amount,
+                'payout_schedule':stock. payout_schedule,
+                'payout_ratio':stock.payout_ratio,
+                'stock_price':stock.stock_price
+        }
+        stock_object_list.append(stock_object)
+    # print(stock_tuples)
+    return (stock_object_list)
 
 
 def remove_user_stock(user_id, stock_id):
