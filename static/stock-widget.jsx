@@ -6,13 +6,13 @@ const Stocks = (stock) => {
     return (
         <Container className="stock-container">
             <Row>
-                <Col sm={1}><p>{stock.symbol}</p></Col>
-                <Col sm={2}><p>{stock.name}</p></Col>
-                <Col sm={1}><p>{stock.price}</p></Col>
-                <Col sm={1}><p>{stock.interval}</p></Col>
-                <Col sm={1}><p>{stock.dividend_amount}</p></Col>
-                <Col sm={1}><p>{stock.dividend_yield}</p></Col>
-                <Col sm={1}><p>{stock.payout_schedule}</p></Col>
+                <Col><p>{stock.symbol}</p></Col>
+                <Col><p>{stock.name}</p></Col>
+                <Col><p>{stock.price}</p></Col>
+                <Col><p>{stock.interval}</p></Col>
+                <Col><p>{stock.dividend_amount}</p></Col>
+                <Col><p>{stock.dividend_yield}</p></Col>
+                <Col><p>{stock.payout_schedule}</p></Col>
             </Row>
         </Container>
     );
@@ -76,7 +76,6 @@ const StocksContainer = () => {
 
     return (
         <Col>
-        <h3>Financial</h3>
         <Container>{stocksArr}</Container>
         </Col>
     )
