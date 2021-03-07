@@ -13,6 +13,10 @@ const Stocks = (stock) => {
                 <Col><p>{stock.dividend_amount}</p></Col>
                 <Col><p>{stock.dividend_yield}</p></Col>
                 <Col><p>{stock.payout_schedule}</p></Col>
+                <Col>
+                    <Button size="sm" variant="outline-info">+</Button>
+                    <Button size="sm" variant="outline-info">-</Button>
+                </Col>
             </Row>
         </Container>
     );
@@ -33,6 +37,7 @@ const StocksContainer = () => {
             <Col><p>Divident</p></Col>
             <Col><p>Dividend Yield</p></Col>
             <Col><p>Payout Schedule</p></Col>
+            <Col><p>Quantity</p></Col>
         </Row>
 
     React.useEffect(() =>{

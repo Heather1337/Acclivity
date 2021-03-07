@@ -23,9 +23,5 @@ const Badge = ReactBootstrap.Badge;
 const DropdownType = ReactBootstrap.DropdownType;
 const Dropdown = ReactBootstrap.Dropdown;
 const DropdownButton = ReactBootstrap.DropdownButton;
-<<<<<<< HEAD
 const NavDropdown = ReactBootsrap.NavDropdown;
 const Table = ReactBootsrap.Table;
-=======
-const NavDropdown = ReactBootstrap.NavDropdown;
->>>>>>> 524ca0a08ffd2d94cca18baca49ec74c09265e3c
