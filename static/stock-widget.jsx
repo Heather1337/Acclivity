@@ -150,24 +150,46 @@ const StocksContainer = () => {
         }
     }
 
-    for(const sector in sectors) {
+    const keysArr = Object.keys(sectors);
+    for(var i = 0; i < keysArr.length; i+=2) {
         console.log('sector: ', sectors)
         stocksArr.push(
-        <Table>
-            <thead>
-                <th>Symbol</th>
-                <th>Stock Name</th>
-                <th>Current Price</th>
-                <th>Interval</th>
-                <th>Dividend</th>
-                <th>Dividend Yield</th>
-                <th>Payout Schedule</th>
-                <th>Quantity</th>
-            </thead>
-            <tbody>
-                {sectors[sector]}
-            </tbody>
-        </Table>
+        <Row>
+            <Col >
+            <Table size="sm" className="sector-table">
+                <thead>
+                    <th>Symbol</th>
+                    <th>Stock Name</th>
+                    <th>Current Price</th>
+                    <th>Interval</th>
+                    <th>Dividend</th>
+                    <th>Dividend Yield</th>
+                    <th>Payout Schedule</th>
+                    <th>Quantity</th>
+                </thead>
+                <tbody>
+                    {sectors[keysArr[i]]}
+                </tbody>
+            </Table>
+            </Col>
+            <Col >
+            <Table size="sm" className="sector-table">
+                <thead>
+                    <th>Symbol</th>
+                    <th>Stock Name</th>
+                    <th>Current Price</th>
+                    <th>Interval</th>
+                    <th>Dividend</th>
+                    <th>Dividend Yield</th>
+                    <th>Payout Schedule</th>
+                    <th>Quantity</th>
+                </thead>
+                <tbody>
+                    {sectors[keysArr[i+1]]}
+                </tbody>
+            </Table>
+            </Col>
+        </Row>
         // <Row className={"sector"}>
         //     <Col>
         //     <Row className="sector-title"><p>{sector}</p></Row>

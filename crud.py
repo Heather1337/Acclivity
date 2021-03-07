@@ -49,7 +49,8 @@ def get_user_payouts(user_id):
 
     stock_tuples = get_user_stocks(user_id)
     for payout in stock_tuples:
-        dividend_amount = float(payout.dividend_yield) * float(payout.stock_price)
+        dividend_amount = float(payout.dividend_yield) * \
+            float(payout.stock_price)
         if payout.payout_schedule == '12':
             monthlyPayout += dividend_amount
         elif payout.payout_schedule == '4':
@@ -109,7 +110,22 @@ def get_user_stocks(user_id):
     #     UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
     user_stocks = UserStock.query.filter(UserStock.user_id == user_id).all()
 
+<<<<<<< HEAD
+    for stock in stock_tuples:
+        stock_object = {
+            'stock_id': stock.stock_id,
+            'dividend_yield': stock.dividend_yield,
+            'dividend_amount': stock.dividend_amount,
+            'payout_schedule': stock. payout_schedule,
+            'payout_ratio': stock.payout_ratio,
+            'stock_price': stock.stock_price
+        }
+        stock_object_list.append(stock_object)
+    # print(stock_tuples)
+    return (stock_object_list)
+=======
     return (user_stocks)
+>>>>>>> 9aa534ace4501e26b3edaa341fc15d50bb6796d1
 
 
 def remove_user_stock(user_id, stock_id):
