@@ -7,24 +7,24 @@ import logging
 
 
 # ======================================== DASHBOARD ROUTES =============================================
-def get_profile_risk(user_id):
+# def get_profile_risk(user_id):
 
-    payout_count = 0
-    stock_tuples = get_user_stocks(user_id)
-    for stock in stock_tuples:
-        stock_info = get_stock_info(stock.stock_id)
-        stock_payout_ratio = stock_info['payout_ratio']
-        print(stock_info['payout_ratio'])
-        payout_count +=  float(stock_payout_ratio)
-    
-    payout_ratio = payout_count / len(stock_tuples)
+#     payout_count = 0
+#     stock_tuples = get_user_stocks(user_id)
+#     for stock in stock_tuples:
+#         stock_info = get_stock_info(stock.stock_id)
+#         stock_payout_ratio = stock_info['payout_ratio']
+#         print(stock_info['payout_ratio'])
+#         payout_count += float(stock_payout_ratio)
 
-    if payout_ratio < .35:
-        return ('very low')
-    if payout_ratio > .35 and payout_ratio < .55:
-        return ('average')
-    if payout_ratio > .55:
-        return ('high')
+#     payout_ratio = payout_count / len(stock_tuples)
+
+#     if payout_ratio < .35:
+#         return ('very low')
+#     if payout_ratio > .35 and payout_ratio < .55:
+#         return ('average')
+#     if payout_ratio > .55:
+#         return ('high')
 
 
 def get_user_industries(user_id):
@@ -39,33 +39,33 @@ def get_user_industries(user_id):
     return sector_list
 
 
-def get_user_payouts(user_id):
+# def get_user_payouts(user_id):
 
-    quarterlyPayout = 0
-    monthlyPayout = 0
-    otherPayout = 0
-    AnnualPayout = 0
-    spent = 0
+#     quarterlyPayout = 0
+#     monthlyPayout = 0
+#     otherPayout = 0
+#     AnnualPayout = 0
+#     spent = 0
 
-    stock_tuples = get_user_stocks(user_id)
-    for payout in stock_tuples:
-        dividend_amount = float(payout.dividend_yield) * \
-            float(payout.stock_price)
-        if payout.payout_schedule == '12':
-            monthlyPayout += dividend_amount
-        elif payout.payout_schedule == '4':
-            quarterlyPayout += dividend_amount
-        elif payout.payout_schedule == '1':
-            AnnualPayout += dividend_amount
-        else:
-            otherPayout += dividend_amount
+#     stock_tuples = get_user_stocks(user_id)
+#     for payout in stock_tuples:
+#         dividend_amount = float(payout.dividend_yield) * \
+#             float(payout.stock_price)
+#         if payout.payout_schedule == '12':
+#             monthlyPayout += dividend_amount
+#         elif payout.payout_schedule == '4':
+#             quarterlyPayout += dividend_amount
+#         elif payout.payout_schedule == '1':
+#             AnnualPayout += dividend_amount
+#         else:
+#             otherPayout += dividend_amount
 
-        AnnualPayout += monthlyPayout * 12
-        AnnualPayout += quarterlyPayout * 4
+#         AnnualPayout += monthlyPayout * 12
+#         AnnualPayout += quarterlyPayout * 4
 
-        spent += float(payout.stock_price)
+#         spent += float(payout.stock_price)
 
-    return [quarterlyPayout, monthlyPayout, otherPayout, AnnualPayout]
+#     return [quarterlyPayout, monthlyPayout, otherPayout, AnnualPayout]
 
 
 # ======================================== STOCK ROUTES =============================================
@@ -107,19 +107,19 @@ def get_user_stocks(user_id):
     # stock_tuples = db.session.query(Stock).select_from(Stock).join(
     #     UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
     user_stocks = UserStock.query.filter(UserStock.user_id == user_id).all()
-
-    for stock in stock_tuples:
-        stock_object = {
-            'stock_id': stock.stock_id,
-            'dividend_yield': stock.dividend_yield,
-            'dividend_amount': stock.dividend_amount,
-            'payout_schedule': stock. payout_schedule,
-            'payout_ratio': stock.payout_ratio,
-            'stock_price': stock.stock_price
-        }
-        stock_object_list.append(stock_object)
+    # stock_object_list = []
+    # for stock in user_stocks:
+    #     stock_object = {
+    #         'stock_id': stock.stock_id,
+    # 'dividend_yield': stock.dividend_yield,
+    # 'dividend_amount': stock.dividend_amount,
+    # 'payout_schedule': stock. payout_schedule,
+    # 'payout_ratio': stock.payout_ratio,
+    # 'stock_price': stock.stock_price
+    # }
+    # stock_object_list.append(stock_object)
     # print(stock_tuples)
-    return (stock_object_list)
+    return (user_stocks)
 
 
 def remove_user_stock(user_id, stock_id):
