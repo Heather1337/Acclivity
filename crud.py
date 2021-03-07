@@ -13,7 +13,7 @@ def get_profile_risk(user_id):
     payout_ratio = 0
 
     for stock in stock_tuples:
-        payout_ratio += stock.payout_ratio
+        payout_ratio += float(stock.payout_ratio)
 
     if payout_ratio < 35:
         return ('very low')
@@ -26,7 +26,8 @@ def get_profile_risk(user_id):
 def get_user_industries(user_id):
 
     stock_tuples = get_user_stocks(user_id)
-
+    for elem in stock_tuples:
+        return elem.sector
     print('obv not done')
 
 
@@ -40,20 +41,20 @@ def get_user_payouts(user_id):
 
     stock_tuples = get_user_stocks(user_id)
     for payout in stock_tuples:
-        dividend_amount = payout.dividend_yield * payout.stock_price
-        if payout.schedule == 'monthly':
+        dividend_amount = float(payout.dividend_yield) * float(payout.stock_price)
+        if payout.payout_schedule == '12':
             monthlyPayout += dividend_amount
-        if payout.schedule == 'quarterly':
+        elif payout.payout_schedule == '4':
             quarterlyPayout += dividend_amount
-        if payout.schedule == 'annually':
+        elif payout.payout_schedule == '1':
             AnnualPayout += dividend_amount
-        if payout.schedule == 'other':
+        else:
             otherPayout += dividend_amount
 
         AnnualPayout += monthlyPayout * 12
         AnnualPayout += quarterlyPayout * 4
 
-        spent += payout.stock_price
+        spent += float(payout.stock_price)
 
     return [quarterlyPayout, monthlyPayout, otherPayout, AnnualPayout]
 
