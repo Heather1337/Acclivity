@@ -53,7 +53,6 @@ with open('data/symbols.csv', 'r') as file:
                 stocks[symbol]["dividend_yield"] = 0
 
 for stock in stocks:
-    print('stock', stocks[stock])
     ticker = Stock(symbol=stocks[stock]['symbol'], sector=stocks[stock]['sector'], company_name=stocks[stock]['company_name'], dividend_amount=stocks[stock]['dividend_amount'],
                    dividend_yield=stocks[stock]['dividend_yield'], payout_schedule=stocks[
         stock]['payout_schedule'], payout_ratio=stocks[stock]['payout_ratio'],
