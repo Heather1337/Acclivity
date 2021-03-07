@@ -15,8 +15,8 @@ function App() {
         // <StocksContainer user={user} setUser={setUser}/>
       <Router>
 
-             <TopNav user={user} setUser={setUser}/>
-              <Dashboard/>
+             {/* <TopNav user={user} setUser={setUser}/> */}
+              {/* <Dashboard/> */}
               <StocksContainer user={user} setUser={setUser}/>
 
           {/* <Switch>
