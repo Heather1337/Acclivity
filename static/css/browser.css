@@ -10,7 +10,17 @@
   White: e34ee6 */
 
   /* ====================  IN PROGRESS ============================= */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #dde1e6;
+}
 
+.table td, .table th {
+  /* padding: .75rem; */
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
   .green{
     color:#2ab977
   }
