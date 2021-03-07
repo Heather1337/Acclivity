@@ -24,8 +24,4 @@ const DropdownType = ReactBootstrap.DropdownType;
 const Dropdown = ReactBootstrap.Dropdown;
 const DropdownButton = ReactBootstrap.DropdownButton;
 const NavDropdown = ReactBootstrap.NavDropdown;
-<<<<<<< HEAD
-const Table = ReactBootstrap.Table
-=======
 const Table = ReactBootstrap.Table;
->>>>>>> a984d30c60ac914303335bbfa41a03fcda08ea17
