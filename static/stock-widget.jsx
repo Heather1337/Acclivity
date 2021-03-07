@@ -6,14 +6,14 @@ const Stocks = (stock) => {
     return (
 
         <Row>
-            <Col><p>{stock.symbol}</p></Col>
-            <Col><p>{stock.name}</p></Col>
-            <Col><p>{stock.price}</p></Col>
-            <Col><p>{stock.interval}</p></Col>
-            <Col><p>{stock.dividend_amount}</p></Col>
-            <Col><p>{stock.dividend_yield}</p></Col>
-            <Col><p>{stock.payout_schedule}</p></Col>
-            <Col><p>{stock.sector}</p></Col>
+            <Col sm={1}><p>{stock.symbol}</p></Col>
+            <Col sm={1}><p>{stock.name}</p></Col>
+            <Col sm={1}><p>{stock.price}</p></Col>
+            <Col sm={1}><p>{stock.interval}</p></Col>
+            <Col sm={1}><p>{stock.dividend_amount}</p></Col>
+            <Col sm={1}><p>{stock.dividend_yield}</p></Col>
+            <Col sm={1}><p>{stock.payout_schedule}</p></Col>
+            <Col sm={1}><p>{stock.sector}</p></Col>
         </Row>
 
     );
@@ -68,7 +68,7 @@ const StocksContainer = () => {
             stocksArr.push(
             <Row className={"sector"}>
                 <Row><p>{sector}</p></Row>
-                {sectors[sector]}
+                <Row>{sectors[sector]}</Row>
             </Row>
             );
         }
@@ -77,16 +77,6 @@ const StocksContainer = () => {
     return (
         <Col>
         <h3>Financial</h3>
-        <Row>
-            <Col><p>Symbol</p></Col>
-            <Col><p>Name</p></Col>
-            <Col><p>Sector</p></Col>
-            <Col><p>Price</p></Col>
-            <Col><p>Interval</p></Col>
-            <Col><p>Dividend Amount</p></Col>
-            <Col><p>Divident Yield</p></Col>
-            <Col><p>Payout Schedule</p></Col>
-        </Row>
         <Container>{stocksArr}</Container>
         </Col>
     )
