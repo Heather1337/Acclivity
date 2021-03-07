@@ -25,13 +25,13 @@ def get_portfolio_info():
     #  GET DATA
     # ****************************** #
     data = request.get_json()
-    # user_id = data['user_id']
+    user_id = data['user_id']
     # ****************************** #
 
-    # risk = crud.get_profile_risk(0)
-    industry_list = crud.get_user_industries(0)
+    risk = crud.get_profile_risk(user_id)
+    industry_list = crud.get_user_industries(user_id)
 
-    portfolio = {'PortfolioRisk': 'High',
+    portfolio = {'PortfolioRisk': risk,
                  'Industries': industry_list}
 
     return jsonify(portfolio)
@@ -43,10 +43,10 @@ def get_all_payouts():
 
     #  GET DATA
     # ****************************** #
-    # data = request.get_json()
-    # user_id = data['user_id']
+    data = request.get_json()
+    user_id = data['user_id']
     # ****************************** #
-    payouts = crud.get_user_payouts(0)
+    payouts = crud.get_user_payouts(user_id)
     payouts_list = []
 
     for payout in payouts:
