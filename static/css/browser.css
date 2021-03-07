@@ -134,13 +134,6 @@
   flex-direction: column;
   overflow-y: auto;
 }
-/* 
-tbody {
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-} */
 
 .stock-button {
   font-size: 12px;
@@ -156,6 +149,7 @@ tbody {
 .center {
   display: flex;
   justify-content: center;
+  padding-top: 3%;
 }
 
 tr:hover {
