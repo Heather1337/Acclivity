@@ -2,7 +2,7 @@
 
 const handleStockClick = (e) => {
     const stock_id = e.target.id;
-    const user_id = localStorage.id;
+    const user_id = 0;
     const payload = {'stock_id': stock_id, 'user_id': user_id}
 
     if(e.target.innerText === "+") {
@@ -14,18 +14,16 @@ const handleStockClick = (e) => {
         })
         .then(resp => resp.json())
         .then(data => console.log('Added stock to user account', data))
-        //Call Patch request to update the amount of stocks for this user
     }
     else if(e.target.innerText === "-") {
         console.log("SUBTRACTED DIVIDEND");
-        fetch('/api/remove-user-stock', {
+        fetch('/api/remove_user_stock', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(payload)
         })
         .then(resp => resp.json())
         .then(data => console.log('Removed stock to user account', data))
-        //Call Patch request to update the amount of stocks for this user
     }
 }
 
@@ -43,8 +41,8 @@ const Stocks = (stock) => {
                 <Col><p>{stock.dividend_yield}</p></Col>
                 <Col><p>{stock.payout_schedule}</p></Col>
                 <Col>
-                    <Button id={stock.symbol} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
-                    <Button id={stock.symbol} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
+                    <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
+                    <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
                 </Col>
             </Row>
         </Container>
@@ -86,6 +84,7 @@ const StocksContainer = () => {
                                 payout_schedule={stock.payout_schedule}
                                 price={stock.stock_price}
                                 interval={stock.payout_ratio}
+                                id={stock.id}
                             />
         if(!sectors[stock.sector]) {
             sectors[stock.sector] = [stockNode]

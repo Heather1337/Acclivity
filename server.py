@@ -92,7 +92,8 @@ def get_all_stocks():
                        "payout_schedule": interval,
                        "stock_price": s.stock_price,
                        "company_name": s.company_name,
-                       "sector": s.sector
+                       "sector": s.sector,
+                       "id": s.stock_id
                        })
 
     return jsonify(stocks[:20])
@@ -119,6 +120,7 @@ def add_user_stock():
 
     #  GET DATA
     # ****************************** #
+    print('=========================', request.get_json())
     data = request.get_json()
     user_id = data['user_id']
     stock_id = data['stock_id']
@@ -141,7 +143,7 @@ def remove_user_stock():
     # ****************************** #
 
     #  REMOVE STOCK
-    stock_remove = crud.remove_user_stock(user_id, stock_id)
+    # stock_remove = crud.remove_user_stock(user_id, stock_id)
     return jsonify('stock_removed')
 # *============================================= USER ACCOUNT ROUTES =============================================
 
