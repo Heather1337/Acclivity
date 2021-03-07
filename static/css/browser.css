@@ -40,8 +40,8 @@
   /* ====================  GLOBAL ============================= */
   body,
   html {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
     color: #e3d4e6;
     height: 100%;
     background: linear-gradient(-45deg, #101821, #040506, #101821, #040506);
@@ -72,11 +72,8 @@
 }
 
 .sector {
-  width: 40%;
   border: 1px solid #dae0e5;
   border-radius: 1%;
-}
-
-.stock {
-  width: 10%;
+  display: flex;
+  justify-content: center;
 }

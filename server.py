@@ -17,6 +17,7 @@ def show_homepage(input_path):
 
 # * ======================================== DASHBOARD ROUTES ==================================================
 
+
 @app.route('/api/get-profile-info', methods=["POST"])
 def get_portfolio_info():
     '''GET ALL STOCKS'''
@@ -30,8 +31,8 @@ def get_portfolio_info():
     risk = crud.get_profile_risk(0)
     industry_list = crud.get_user_industries(0)
 
-    portfolio = {'PortfolioRisk':risk,
-                'Industries': industry_list}
+    portfolio = {'PortfolioRisk': risk,
+                 'Industries': industry_list}
 
     return jsonify(portfolio)
 
@@ -50,11 +51,11 @@ def get_all_payouts():
 
     for payout in payouts:
         payouts.append({'QuarterlyPayout': payout.QuarterlyPayout,
-                       'MonthlyPayout':payout.MonthlyPayout,
-                       'OtherPayout':payout.OtherPayout,
-                       'AnnualPayout':payout.AnnualPayout,
-                       'spent':payout.spent
-                       })
+                        'MonthlyPayout': payout.MonthlyPayout,
+                        'OtherPayout': payout.OtherPayout,
+                        'AnnualPayout': payout.AnnualPayout,
+                        'spent': payout.spent
+                        })
 
     return jsonify(payouts_list)
 
@@ -79,7 +80,8 @@ def get_all_stocks():
                        "payout_ratio": s.payout_ratio,
                        "payout_schedule": s.payout_schedule,
                        "stock_price": s.stock_price,
-                       "sector": "sector"
+                       "company_name": s.company_name,
+                       "sector": s.sector
                        })
 
     return jsonify(stocks[:20])
