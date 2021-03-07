@@ -75,11 +75,21 @@ def get_all_stocks():
 
     for s in all_stocks:
         # logic to swap schedule for a string saying how often
+        interval = "Other"
+        if s.payout_schedule == "0":
+            interval = "None in 2020"
+        elif s.payout_schedule == "1":
+            interval = "Annually"
+        elif s.payout_schedule == "2":
+            interval = "Semi-annually"
+        elif s.payout_schedule == "4":
+            interval = "Quarterly"
+
         stocks.append({"symbol": s.symbol,
                        "dividend_amount": s.dividend_amount,
                        "dividend_yield": s.dividend_yield,
                        "payout_ratio": s.payout_ratio,
-                       "payout_schedule": s.payout_schedule,
+                       "payout_schedule": interval,
                        "stock_price": s.stock_price,
                        "company_name": s.company_name,
                        "sector": s.sector
@@ -172,9 +182,11 @@ def login_user():
     is_user = crud.validate_user(password, email)
 
     if is_user:
-        return jsonify({'fname': user['fname'], 'id': user['user_id'], 'submission_status': user['submission_status']})
+        print('IS USER')
+        return jsonify({'fname': user['fname'], 'id': user['user_id']})
 
     else:
+        print('IS NOT USER')
         return jsonify('info does not match')
 
 

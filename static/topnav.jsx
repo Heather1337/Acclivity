@@ -6,7 +6,7 @@ function TopNav({user, setUser}) {
         evt.preventDefault();
         localStorage.removeItem('user');
         setUser({fname: "", id: 0, sumbission_status:'false'});
-        // history.push('/');
+        history.push('/');
     };
 
     return (
@@ -28,7 +28,7 @@ function TopNav({user, setUser}) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            {user?'':<Nav.Link to="/signup">Login | Signup</Nav.Link>}
+                            {user?'':<Link to="/signup">Login | Signup</Link>}
                             {user?
                                 <NavDropdown title= {user.fname} id="basic-nav-dropdown">
                                     <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
