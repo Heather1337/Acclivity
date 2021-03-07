@@ -1,12 +1,14 @@
 ## Acclivity 
-# Created by: Heather Piverotto, Angela Purcell, Bekah McCurry, Jiyoung Yoon
+
+Created by: Heather Piverotto, Angela Purcell, Bekah McCurry, Jiyoung Yoon
+**************************************************************************************************
   
-# UI allows users to view dividend stocks (1,000 data points sourced from two APIs) by sector
+UI allows users to view dividend stocks (1,000 data points sourced from two APIs) by sector
 **************************************************************************************************
 ![UI for Acclivity](https://media.giphy.com/media/edepEkos9upI3Ig0za/giphy.gif)
 
 
-# User has the ability to view real time updates when adding/removing dividends from their portfolio
+User has the ability to view real time updates when adding/removing dividends from their portfolio
 **************************************************************************************************
 ![Real time updates for Dashboard](https://media.giphy.com/media/7ukWQEDmqEInCbPlOR/giphy.gif)
 
