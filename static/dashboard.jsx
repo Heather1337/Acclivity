@@ -37,21 +37,21 @@ function Dashboard() {
             <Table size="sm">
                 <tbody>
                     <tr>
-                    <td>Quarterly Payouts:</td>
+                    <td>Quarterly Income:</td>
                     <td>{payouts.QuarterlyPayout}</td>
                     <td></td>
                     </tr>
                     <tr>
-                    <td>Monthly Payouts:</td>
+                    <td>Monthly Income:</td>
                     <td>{payouts.MonthlyPayout}</td>
                     <td></td>
                     </tr>
                     <tr>
-                    <td>Other Payouts:</td>
+                    <td>Other Income:</td>
                     <td>{payouts.OtherPayout}</td>
                     </tr>
                     <tr>
-                    <td>Total Annual payout:</td>
+                    <td>Total Annual Income:</td>
                     <td className="green">{payouts.AnnualPayout}</td>
                     <td>Total Spent:</td>
                     <td></td>
@@ -60,27 +60,25 @@ function Dashboard() {
                 </tbody>
             </Table>
 
-            {/* <p>
-            Quarterly Payouts: {payouts.QuarterlyPayout}
-            <br/>
-            Monthly Payouts: {payouts.MonthlyPayout}
-            <br/>
-            Other Payouts: {payouts.OtherPayout}
-            <br/>
-            Total Annual payout: <p className="green">{payouts.AnnualPayout}</p>
-            <p>
-            Total Spent: <p className="red"> {payouts.spent}</p>
-            </p>
-            </p> */}
-
         </Col>
 
         <Col>
-            <p>
-                Profile risk level:<p className={portfolioRisk === 'High'?  "red" : "green"}>{portfolioRisk} </p>
-                <br/>
-                Sectors Occupied: {sectorsOccupied}
-            </p>
+
+            <Table size="sm">
+                    <tbody>
+                        <tr>
+                        <td>Portfolio Risk:</td>
+                        <td className={portfolioRisk === 'High'?  "red" : "green"}>{portfolioRisk}</td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td>Sectors Occupied:</td>
+                        <td>{sectorsOccupied}</td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+            </Table>
+
         </Col>
 
         </Row>
