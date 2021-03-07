@@ -1,4 +1,15 @@
 @media only screen and (min-width: 600px) {
+
+
+ /* ====================  IN PROGRESS ============================= */
+  #user-dashboard{
+    border-radius: 5px;
+    height: 10rem;
+    width: 95%;
+    color: black;
+    background-color: #e3d4e6;
+    margin: auto;
+  }
   /* ====================  GLOBAL ============================= */
   body,
   html {

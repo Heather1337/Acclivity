@@ -13,7 +13,7 @@ function TopNav({user, setUser}) {
 
         <React.Fragment>
             <Navbar>
-                <Link>terxt</Link>
+                <Link>TOPNAV</Link>
             </Navbar>
             {/* <Navbar
                 scrolling="true"
