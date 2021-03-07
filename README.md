@@ -25,7 +25,9 @@ Acclivity allows users to build a mock dividend portfolio based on a concise pre
 
 
 ## How we built it
-While researching the API endpoint options, we determined our basic wireframe and database schema, then used that structure to create our table relationships. After retrieving data from multiple polygon.io endpoints, we parsed through the responses to build up our stock data. We seeded the stocks table in our database using our scraped data and established the CRUD operations to begin implementing user functionality. There, we added stock routes, user stock routes, user dashboard routes, and login routes, to be called in our server file. Our server routes and corresponding react components were next,
+While researching the API endpoint options, we determined our basic wireframe and database schema, then used that structure to create our table relationships. After retrieving data from multiple polygon.io endpoints, we parsed through the responses to build up our stock data. We seeded the stocks table in our database using our scraped data and established the CRUD operations to begin implementing user functionality. There, we added stock routes, user stock routes, user dashboard routes, and login routes, to be called in our server file. Our server routes and corresponding react components were next.
+
+
 ## Challenges we ran into
 Our biggest challenge by far was sourcing and mining data. While there are quite a few financial APIs we considered, the data we needed was not located in a single endpoint, instead, we had to utilize three separate endpoints from polygon.io, and parse data from each response object. The API we used had a pretty low limit of API calls per minute, so it required us to establish a lengthy function breakdown to swap out API keys, as we mined over 1000 stocks in order to get a broad enough representation.
 
@@ -36,12 +38,14 @@ Successfully parsing through our API response objects and csvs to seed our datab
 Developing such a clean presentation of dividend stock options.
 Creating an effective stock increment/decrement for client profiles.
 
+
 ## What we learned
 We learned a lot about finance! We started this project hoping to clarify things for ourselves as well and were able to learn a lot about where dividends come from, what the represent and how to pick one!
 We also learned that.....
 Finance data is expensive!
 Git is a necessary evil 
 Dynamic graphs are not something we can learn in an hour.
+
 
 ## What's next for Acclivity
 - We'd like to integrate part of our inspiration - twitter posts - to track stocks and companies receiving buzz. Imagine setting up your stock profile to receive alerts if Elon Musk tweets something about a company.
