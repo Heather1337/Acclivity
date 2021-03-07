@@ -71,11 +71,11 @@ def get_user_payouts(user_id):
 
         spent += float(stock_price)
 
-    return {'QuarterlyPayout': quarterlyPayout,
-            'triannualPayout': triannualPayout,
-            'OtherPayout': otherPayout,
-            'AnnualPayout':  AnnualPayout,
-            'spent': spent
+    return {'QuarterlyPayout': round(quarterlyPayout, 2),
+            'triannualPayout': round(triannualPayout, 2),
+            'OtherPayout': round(otherPayout, 2),
+            'AnnualPayout':  round(AnnualPayout, 2),
+            'spent': round(spent, 2)
             }
 
 

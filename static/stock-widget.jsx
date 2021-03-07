@@ -37,6 +37,7 @@ const Stocks = (stock) => {
             })
             .then(resp => resp.json())
             .then(stock.update())
+            .then(stock.updateDash(Math.random()))
         }
         else if(e.target.innerText === "-") {
             console.log("SUBTRACTED DIVIDEND");
@@ -47,6 +48,7 @@ const Stocks = (stock) => {
             })
             .then(resp => resp.json())
             .then(stock.update())
+            .then(stock.updateDash(Math.random()))
         }
     }
 
@@ -79,7 +81,7 @@ const Stocks = (stock) => {
 //Container for all stock components on page
 const StocksContainer = (props) => {
 
-    console.log(props)
+    console.log('props from app', props)
     // const randomNumber = Math.random()
     // const stateChange = randomNumber.toString()
     // setDashboardRefresher(stateChange)
@@ -120,6 +122,7 @@ const StocksContainer = (props) => {
                                 quantity={quantity}
                                 ratio={stock.payout_ratio}
                                 update={updateUserStocks}
+                                updateDash={props.setDashboardRefresher}
                             />
         if(!sectors[stock.sector]) {
             sectors[stock.sector] = [stockNode]
