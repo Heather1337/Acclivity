@@ -1,4 +1,5 @@
- Acclivity 
+ ## Acclivity 
+ Created by: Heather Piverotto, Angela Purcell, Bekah McCurry, Jiyoung Yoon
   
 ![UI for Acclivity](https://media.giphy.com/media/edepEkos9upI3Ig0za/giphy.gif)
 **************************************************************************************************
