@@ -15,6 +15,30 @@ def show_homepage(input_path):
     """SHOW APPLICATION HOMEPAGE."""
     return render_template('index.html')
 
+# * ======================================== DASHBOARD ROUTES ==================================================
+
+@app.route('/api/get-all-payouts', methods=["POST"])
+def get_all_stocks():
+    '''GET ALL STOCKS'''
+
+    #  GET DATA
+    # ****************************** #
+    # data = request.get_json()
+    # user_id = data['user_id']
+    # ****************************** #
+    payouts = crud.get_user_payouts(0)
+    payouts_list = []
+
+    for payout in payouts:
+        payouts.append({'QuarterlyPayout': payout.QuarterlyPayout,
+                       'MonthlyPayout':payout.MonthlyPayout,
+                       'OtherPayout':payout.OtherPayout,
+                       'AnnualPayout':payout.AnnualPayout,
+                       'spent':payout.spent
+                       })
+
+    return jsonify(payouts_list)
+
 
 # * ======================================== STOCK ROUTES ==================================================
 @app.route('/api/get-all-stocks', methods=["GET"])

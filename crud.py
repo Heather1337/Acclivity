@@ -6,6 +6,35 @@ import random
 import logging
 
 
+# ======================================== DASHBOARD ROUTES =============================================
+def get_user_payouts(user_id):
+
+    quarterlyPayout = 0
+    monthlyPayout = 0
+    otherPayout = 0
+    AnnualPayout = 0
+    spent = 0 
+
+    payout_tuples = db.session.query(Stock).select_from(Stock).join(UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
+    for payout in payout_tuples:
+        dividend_amount = payout.dividend_yield * payout.stock_price
+        if payout.schedule == 'monthly':
+            monthlyPayout += dividend_amount
+        if payout.schedule == 'quarterly':
+            quarterlyPayout += dividend_amount
+        if payout.schedule == 'annually':
+            AnnualPayout += dividend_amount
+        if payout.schedule == 'other':
+            otherPayout += dividend_amount
+
+        AnnualPayout += monthlyPayout * 12
+        AnnualPayout += quarterlyPayout * 4
+
+        spent += payout.stock_price
+
+    return [quarterlyPayout,monthlyPayout,otherPayout,AnnualPayout]
+
+
 # ======================================== STOCK ROUTES =============================================
 def get_all_stocks():
     '''GET SPECIFIC NOMINATION'''
