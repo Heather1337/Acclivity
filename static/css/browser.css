@@ -1,21 +1,23 @@
 @media only screen and (min-width: 600px) {
-  /* 
-  Color hero:
-  black : 040506
-  Super dark blue: 101821
-  Slate blue: 1e2633
-  red : e1014A
-  Purple: 5f5cff
-  Green: 2ab977
-  White: e34ee6 */
 
-  /* ====================  IN PROGRESS ============================= */
-  .btn-primary {
-    color: #fff;
+
+/* ====================  DASHBOARD ============================= */
+
+  #user-dashboard {
+    padding: 1rem;
+    border-radius: 5px;
+    height: 10rem;
+    width: 80%;
+    box-shadow: 5px 5px 10px 10px #26ba780d;
+    color: #dae0e5;
     background-color: #1e2633;
-    border-color: #2ab97736;
-    margin-top: .5rem;
-}
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+
+ /* ====================  LOGIN SIGNUP ============================= */
+
   #landing-page-row{
     height: 100vh;
     width: 100vw;
@@ -35,50 +37,11 @@
     margin: auto;
   }
 
-  .table {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #dde1e6;
-    overflow:scroll;
-  }
 
-  .sector-table {
-    border-radius: 5px;
-    background: #19222b;
-    padding: 0%;
-    font-size: 10px;
-}
-
-  tbody{
-    background: #1e2633;
-    border-radius: 5px;
-  }
-
-  .table td,
-  .table th {
-    /* padding: .75rem; */
-    vertical-align: top;
-    border-top: 1px solid #dee2e600;
-  }
-
-  #symbol-space {
-    margin-left: 4%;
-    columns: 20px;
-    display: flex;
-  }
-  .green {
-    color: #2ab977;
-  }
-
-  .red {
-    color: #e1014a;
-  }
-
-  .fixed-top {
-    background: #040506;
-    margin-bottom: 2rem;
-  }
-
+  #login-link{
+    margin: 2rem;
+  } 
+   
   .login-signup-row {
     height: 100vh;
     width: 100vw;
@@ -98,17 +61,52 @@
     color: #dee2e6;
   }
 
-  #user-dashboard {
-    padding: 1rem;
-    border-radius: 5px;
-    height: 10rem;
-    width: 80%;
-    box-shadow: 5px 5px 10px 10px #26ba780d;
-    color: #dae0e5;
+
+  #bottomnav {
+    color: #e3d4e6;
+    background-color: #040506;
+  }
+  /* ====================  GLOBAL ============================= */
+
+  .btn-primary {
+    color: #fff;
     background-color: #1e2633;
-    margin: auto;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    border-color: #2ab97736;
+    margin-top: .5rem;
+  }
+
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #dde1e6;
+    overflow:scroll;
+  }
+
+  .sector-table {
+    border-radius: 5px;
+    background: #19222b;
+    padding: 0%;
+    font-size: 10px;
+  }
+
+  tbody{
+    background: #1e2633;
+    border-radius: 5px;
+  }
+
+  .table td,
+  .table th {
+    vertical-align: top;
+    border-top: 1px solid #dee2e600;
+  }
+
+
+  .green {
+    color: #2ab977;
+  }
+
+  .red {
+    color: #e1014a;
   }
 
   a {
@@ -117,15 +115,19 @@
     background-color: transparent;
   }
 
-  #bottomnav {
-    color: #e3d4e6;
-    background-color: #040506;
+  #symbol-space {
+    margin-left: 4%;
+    columns: 20px;
+    display: flex;
   }
-  /* ====================  GLOBAL ============================= */
-  body,
-  html {
-    /* overflow-x: hidden;
-    overflow-y: hidden; */
+
+
+  .fixed-top {
+    background: #040506;
+    margin-bottom: 2rem;
+  }
+
+  body,html {
     color: #e3d4e6;
     height: 100%;
     background: linear-gradient(-45deg, #101821, #040506, #101821, #040506);
@@ -144,7 +146,6 @@
       background-position: 0% 50%;
     }
   }
-  /* #8a8a8a */
 
   /* ====================  GRID: ROW & COL ============================= */
 }
@@ -157,7 +158,6 @@
 }
 
 .sector-table {
-  /* padding: 0%; */
   font-size: 12px;
 }
 

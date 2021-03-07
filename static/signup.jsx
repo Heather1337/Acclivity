@@ -65,7 +65,7 @@ function Signup({setUser}) {
                             type="submit">
                             Register
                     </Button>
-                    <Link to='/login'>
+                    <Link id='login-link' to='/login'>
                       Login
                     </Link>
                 </Form>
