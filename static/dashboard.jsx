@@ -6,36 +6,35 @@ function Dashboard(props) {
     const [payouts, setPayouts] = React.useState({QuarterlyPayout: 0, triannualPayout:0, OtherPayout:0, AnnualPayout:0, spent:0});
     const [portfolioRisk, setPortfolioRisk] = React.useState('None');
     const [sectorsOccupied, setSectorsOccupied] = React.useState([]);
-    const stocks = props.dashboardRefresher
-    console.log(sectorsOccupied)
-
 
     React.useEffect(() =>{
-        let user_id = props.user? props.user.id:'0'
-        let data = {user_id}
+        let user_id = props.user? props.user.id:'0';
+        let data = {user_id};
         fetch('/api/get-all-payouts',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {
-            // console.log('here',data)
-            console.log(props)
-            setPayouts(data)
+            setPayouts(data);
         });
-    },[stocks]);
+    },[])
 
     React.useEffect(() =>{
-        let user_id = props.user? props.user.id:'0'
-        let data = {user_id}
+        let user_id = props.user? props.user.id:'0';
+        let data = {user_id};
         fetch('/api/get-profile-info',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {
-            // console.log('here',data)
-            setPortfolioRisk(data['PortfolioRisk'])
-            setSectorsOccupied(data['Industries'])
+            setPortfolioRisk(data['PortfolioRisk']);
+            setSectorsOccupied(data['Industries']);
         });
-    },[stocks]);
+    },[]);
 
+    const sectors = [];
+    for(let i = 0; i < sectorsOccupied.length; i++) {
+        if(i < sectorsOccupied.length - 1) sectors.push(<tr>{sectorsOccupied[i]},</tr>)
+        else sectors.push(<tr>{sectorsOccupied[i]}</tr>)
+    }
 
 
     return (
@@ -82,7 +81,7 @@ function Dashboard(props) {
                         </tr>
                         <tr>
                         <td>Sectors Occupied:</td>
-                        <td>{sectorsOccupied}</td>
+                        <td>{sectors}</td>
                         <td></td>
                         </tr>
                     </tbody>
