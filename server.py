@@ -39,7 +39,7 @@ def get_all_stocks():
                        "sector": "sector"
                        })
 
-    return jsonify(stocks)
+    return jsonify(stocks[:20])
 
 
 # * ======================================== USER STOCK ROUTES =============================================
