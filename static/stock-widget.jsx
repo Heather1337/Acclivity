@@ -10,6 +10,10 @@ const Stocks = (stock) => {
             <Col><p>{stock.name}</p></Col>
             <Col><p>{stock.price}</p></Col>
             <Col><p>{stock.interval}</p></Col>
+            <Col><p>{stock.dividend_amount}</p></Col>
+            <Col><p>{stock.dividend_yield}</p></Col>
+            <Col><p>{stock.payout_schedule}</p></Col>
+            <Col><p>{stock.sector}</p></Col>
         </Row>
 
     );
@@ -19,59 +23,45 @@ const Stocks = (stock) => {
 const StocksContainer = () => {
 
     const [stocks, setStocks] = React.useState([]);
-    // const test = {
-    //     'symbol': 'AAPL',
-    //     'name': 'Apple',
-    //     'price': 300,
-    //     'interval': 4
-    // }
-    // const test1 = {
-    //     'symbol': 'NVDA',
-    //     'name': 'Nvidia',
-    //     'price': 100,
-    //     'interval': 4
-    // }
-    // const test2 = {
-    //     'symbol': 'GME',
-    //     'name': 'Gamestop',
-    //     'price': 100000,
-    //     'interval': 4
-    // }
-
     const stocksArr = [];
-    // const stocks = [test1, test1, test2]
 
     React.useEffect(() =>{
         fetch('/api/get-all-stocks')
         .then(response => response.json())
         .then(data => {
-            console.log('here',data)
             setStocks(data)
         });
     }, []);
 
     for(const stock of stocks) {
-        console.log(stocks)
+        console.log(stock)
         stocksArr.push(
             <Stocks
             symbol={stock.symbol}
             name={stock.name}
-            // sector={stock.sector}
-            // dividend_yield={stock.dividend_yield}
-            // dividend_amount={stock.dividend_amount}
-            // payout_schedule={stock.payout_schedule}
-            price={stock.price}
+            sector={stock.sector}
+            dividend_yield={stock.dividend_yield}
+            dividend_amount={stock.dividend_amount}
+            payout_schedule={stock.payout_schedule}
+            price={stock.stock_price}
             interval={stock.payout_ratio}
-            // date_added={stock.date_added}
-            // date_modified={stock.date_modified}
             />
         );
     }
-    console.log(stocksArr)
 
     return (
         <Col>
         <h3>Financial</h3>
+        <Row>
+            <Col><p>Symbol</p></Col>
+            <Col><p>Name</p></Col>
+            <Col><p>Sector</p></Col>
+            <Col><p>Price</p></Col>
+            <Col><p>Interval</p></Col>
+            <Col><p>Dividend Amount</p></Col>
+            <Col><p>Divident Yield</p></Col>
+            <Col><p>Payout Schedule</p></Col>
+        </Row>
         <Container>{stocksArr}</Container>
         </Col>
     )
