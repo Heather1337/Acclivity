@@ -18,7 +18,7 @@ function App() {
              {/* <TopNav user={user} setUser={setUser}/> */}
 
           <Switch>
-                  <Route exact path="/">
+                  <Route exact path="/home">
                       <TopNav user={user} setUser={setUser}/>
                       <Dashboard dashboardRefresher={dashboardRefresher}/>
                       <StocksContainer user={user} setUser={setUser} dashboardRefresher={dashboardRefresher} setDashboardRefresher={setDashboardRefresher}/>
