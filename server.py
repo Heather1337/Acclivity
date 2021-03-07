@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route('/<path:input_path>') #or if this does
 def show_homepage(input_path):
     """SHOW APPLICATION HOMEPAGE."""
-    return render_template('base.html')
+    return render_template('index.html')
 
 
 # * ======================================== STOCK ROUTES ==================================================

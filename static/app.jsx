@@ -11,15 +11,18 @@ function App() {
 
 
     return (
-        <StocksContainer user={user} setUser={setUser}/>
-    //   <Router>
 
-    //       <TopNav user={user} setUser={setUser}/>
+        // <StocksContainer user={user} setUser={setUser}/>
+      <Router>
 
-    //       <Switch>
-    //               <Route path="/about">
-    //                   <About/>
-    //               </Route>
+             {/* <TopNav user={user} setUser={setUser}/> */}
+              <Dashboard/>
+              <StocksContainer user={user} setUser={setUser}/>
+
+          {/* <Switch>
+                  <Route path="/stocks">
+                      <StocksContainer user={user} setUser={setUser}/>
+                  </Route>
 
     //               <Route path='/login'>
     //                   <Login user={user} setUser={setUser}/>
@@ -33,11 +36,11 @@ function App() {
     //                   <LandingPage user={user} />
     //               </Route>
 
-    //       </Switch>
+    //       </Switch> */}
 
-    //       <Footer/>
+    {/* //       <Footer/> */}
 
-    //   </Router>
+      </Router>
 
     );
 }

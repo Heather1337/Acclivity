@@ -26,9 +26,9 @@
 
   /* ====================  GRID: ROW & COL ============================= */
 
-  .row {
+  /* .row {
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
-  }
+  } */
 }

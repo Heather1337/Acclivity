@@ -2,17 +2,20 @@ function TopNav({user, setUser}) {
 
     const history = useHistory();
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        localStorage.removeItem('user');
-        setUser({fname: "", id: 0, sumbission_status:'false'});
-        history.push('/');
-    };
+    // function handleSubmit(evt) {
+    //     evt.preventDefault();
+    //     localStorage.removeItem('user');
+    //     setUser({fname: "", id: 0, sumbission_status:'false'});
+    //     history.push('/');
+    // };
 
     return (
 
         <React.Fragment>
-            <Navbar
+            <Navbar>
+                <Link>terxt</Link>
+            </Navbar>
+            {/* <Navbar
                 scrolling="true"
                 expand="sm"
                 fixed='top'
@@ -34,8 +37,8 @@ function TopNav({user, setUser}) {
                                     <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
                                 </NavDropdown>:''}
                         </Nav>
-                    </Navbar.Collapse>
-            </Navbar>
+                    </Navbar.Collapse> */}
+            {/* </Navbar> */}
         </React.Fragment>
     );
 }
