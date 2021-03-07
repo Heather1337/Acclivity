@@ -10,11 +10,24 @@
   White: e34ee6 */
 
   /* ====================  IN PROGRESS ============================= */
+<<<<<<< HEAD
   .table {
     width: 100%;
     margin-bottom: 1rem;
     color: #dde1e6;
   }
+=======
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #dde1e6;
+}
+#symbol-space{
+  margin-left: 4%;
+  columns: 20px;
+  display: flex;
+}
+>>>>>>> 6a9e3195855f6487fcef8201559c10c5e751fad1
 
   .table td,
   .table th {
