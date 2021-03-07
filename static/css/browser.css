@@ -11,6 +11,27 @@
 
   /* ====================  IN PROGRESS ============================= */
 
+  .login-signup-row{
+    height: 100vh;
+    width: 100vh;
+  }
+
+  #signupform{
+    width: 30rem;
+    margin: auto;
+  }
+
+  #loginform{
+    margin-top:80%
+  }
+
+  #signup-column{
+    height: 100vh;
+  }
+
+  #login-column{
+    height: 100vh;
+  }
   .navbar-light .navbar-nav .nav-link {
     color: #dee2e6;
   }

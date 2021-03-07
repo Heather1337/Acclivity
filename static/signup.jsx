@@ -1,14 +1,31 @@
 function Signup({setUser}) {
 
+
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [fname, setFname] = React.useState('')
+  const [lname, setLname] = React.useState('')
+
+  function handleSubmit(evt){
+    evt.preventDefault()
+    let data = {email:email, password:password, fname:fname, lname:lname}
+    fetch('/api/signup',
+    {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}} )
+    .then(response => response.json())
+    .then(data => {
+    if (data == 'account created'){
+      alert('account created, please login')
+    }else{
+      alert('invalid email or password')
+    }
+    });
+  }
+
     return (
 
         <React.Fragment>
             
             <Row className="login-signup-row">
-            <Col id='login-column'>
-                <Login setUser={setUser}/>
-            </Col>
-            <Col id='signup-column'>
                 <Form id='signupform' onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicfname">
                     <Form.Control type="text"
@@ -44,7 +61,6 @@ function Signup({setUser}) {
                             Register
                     </Button>
                 </Form>
-            </Col>
             </Row>
         </React.Fragment>
     )

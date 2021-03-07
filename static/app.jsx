@@ -23,13 +23,13 @@ function App() {
               {/* <StocksContainer user={user} setUser={setUser}/> */}
 
           <Switch>
-                  <Route exact path="/">
+                  <Route exact path="/signup">
                       <Dashboard/>
                       <StocksContainer user={user} setUser={setUser}/>
                   </Route>
 
 
-                  <Route path='/signup'>
+                  <Route path='/'>
                        <Signup setUser={setUser} user={user}/>
                    </Route>
 
