@@ -113,7 +113,7 @@ def get_user_by_email(email):
             'lname': result.lname,
             'password': result.password,
             'user_id': result.user_id}
-
+    print('GET USER BY EMAIL *****************************************************************************',user)
     return user
 
 
@@ -131,7 +131,9 @@ def does_user_exist(email):
 def validate_user(password, email):
     """CHECK FOR VALID PASSWORD AT LOGIN"""
 
-    return User.query.filter(User.password == password, User.email == email).first()
+    user = User.query.filter(User.password == password, User.email == email).first()
+    print('Validate user *****************************************************************************',user)
+    return user
 
 
 def create_user(fname, lname, email, password):

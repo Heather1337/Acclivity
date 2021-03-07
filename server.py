@@ -174,15 +174,15 @@ def login_user():
     #  GET DATA
     # ****************************** #
     data = request.get_json()
+    print('THISI IS DATA #########################################################################################',data)
     email = data['email']
     password = data['password']
-    user = crud.get_user_by_email(email)
     # ****************************** #
 
     is_user = crud.validate_user(password, email)
 
     if is_user:
-        print('IS USER')
+        user = crud.get_user_by_email(email)
         return jsonify({'fname': user['fname'], 'id': user['user_id']})
 
     else:
