@@ -3,6 +3,7 @@ function Signup({setUser}) {
     return (
 
         <React.Fragment>
+            
             <Row className="login-signup-row">
             <Col id='login-column'>
                 <Login setUser={setUser}/>

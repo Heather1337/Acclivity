@@ -23,7 +23,7 @@ function App() {
               {/* <StocksContainer user={user} setUser={setUser}/> */}
 
           <Switch>
-                  <Route path="/">
+                  <Route exact path="/">
                       <Dashboard/>
                       <StocksContainer user={user} setUser={setUser}/>
                   </Route>
