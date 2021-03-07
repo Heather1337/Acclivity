@@ -13,7 +13,7 @@ const handleStockClick = (e) => {
             body: JSON.stringify(payload)
         })
         .then(resp => resp.json())
-        .then(data => console.log('Added stock to user account', data))
+        .then()
     }
     else if(e.target.innerText === "-") {
         console.log("SUBTRACTED DIVIDEND");
@@ -68,47 +68,10 @@ const Stocks = (stock) => {
 
 //Container for all stock components on page
 const StocksContainer = () => {
-    const handleStockClick = (e) => {
-        const stock_id = e.target.id;
-        const user_id = 0;
-        const payload = {'stock_id': stock_id, 'user_id': user_id}
-    
-        if(e.target.innerText === "+") {
-            console.log("ADDED DIVIDEND");
-            fetch('/api/add-user-stock', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
-            })
-            .then(resp => resp.json())
-            .then(getUserStocks(setUserStocks))
-        }
-        else if(e.target.innerText === "-") {
-            console.log("SUBTRACTED DIVIDEND");
-            fetch('/api/remove_user_stock', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
-            })
-            .then(resp => resp.json())
-            .then(getUserStocks(setUserStocks))
-        }
-    }
-
     const [stocks, setStocks] = React.useState([]);
     const [userStocks, setUserStocks] = React.useState({});
     const stocksArr = [];
     const sectors = {};
-    const headers = <Row id = "symbol-space">
-            <Col><p>Symbol</p></Col>
-            <Col><p>Stock Name</p></Col>
-            <Col><p>Current Price</p></Col>
-            <Col><p>Interval</p></Col>
-            <Col><p>Dividend</p></Col>
-            <Col><p>Dividend Yield</p></Col>
-            <Col><p>Payout Schedule</p></Col>
-            <Col><p>Quantity</p></Col>
-        </Row>
 
     React.useEffect(() =>{
         fetch('/api/get-all-stocks')
