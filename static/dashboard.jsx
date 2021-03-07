@@ -6,6 +6,8 @@ function Dashboard(props) {
     const [payouts, setPayouts] = React.useState({QuarterlyPayout: 0, triannualPayout:0, OtherPayout:0, AnnualPayout:0, spent:0});
     const [portfolioRisk, setPortfolioRisk] = React.useState('None');
     const [sectorsOccupied, setSectorsOccupied] = React.useState([]);
+    const stocks = props.dashboardRefresher
+    console.log(stocks)
 
 
     React.useEffect(() =>{
@@ -16,9 +18,10 @@ function Dashboard(props) {
         .then(response => response.json())
         .then(data => {
             // console.log('here',data)
+            console.log(props)
             setPayouts(data)
         });
-    },[]);
+    },[stocks]);
 
     React.useEffect(() =>{
         let user_id = props.user? props.user.id:'0'
@@ -31,7 +34,8 @@ function Dashboard(props) {
             setPortfolioRisk(data['PortfolioRisk'])
             setSectorsOccupied(data['Industries'])
         });
-    },[]);
+    },[stocks]);
+
 
 
     return (
