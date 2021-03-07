@@ -1,5 +1,9 @@
 "use strict";
 
+const handleStockClick = () => {
+    console.log('Clicked!!!!!');
+}
+
 //Build each individual stock node
 const Stocks = (stock) => {
 
@@ -13,6 +17,10 @@ const Stocks = (stock) => {
                 <Col><p>{stock.dividend_amount}</p></Col>
                 <Col><p>{stock.dividend_yield}</p></Col>
                 <Col><p>{stock.payout_schedule}</p></Col>
+                <Col>
+                    <Button size="sm" variant="outline-info" onClick={handleStockClick}>+</Button>
+                    <Button size="sm" variant="outline-info" onClick={handleStockClick}>-</Button>
+                </Col>
             </Row>
         </Container>
     );
@@ -33,6 +41,7 @@ const StocksContainer = () => {
             <Col><p>Divident</p></Col>
             <Col><p>Dividend Yield</p></Col>
             <Col><p>Payout Schedule</p></Col>
+            <Col><p>Quantity</p></Col>
         </Row>
 
     React.useEffect(() =>{
