@@ -18,7 +18,7 @@ def show_homepage(input_path):
 # * ======================================== DASHBOARD ROUTES ==================================================
 
 @app.route('/api/get-all-payouts', methods=["POST"])
-def get_all_stocks():
+def get_all_payouts():
     '''GET ALL STOCKS'''
 
     #  GET DATA
