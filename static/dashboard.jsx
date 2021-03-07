@@ -43,7 +43,7 @@ function Dashboard() {
             <br/>
             Total Annual payout: <p className="green">{payouts.AnnualPayout}</p>
             <p>
-            Total Spent: <p>className="red">{payouts.spent}</p>
+            Total Spent: <p className="red"> {payouts.spent}</p>
             </p>
             </p>
 
