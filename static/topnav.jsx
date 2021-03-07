@@ -2,12 +2,12 @@ function TopNav({user, setUser}) {
 
     const history = useHistory();
 
-    // function handleSubmit(evt) {
-    //     evt.preventDefault();
-    //     localStorage.removeItem('user');
-    //     setUser({fname: "", id: 0, sumbission_status:'false'});
-    //     history.push('/');
-    // };
+    function handleSubmit(evt) {
+        evt.preventDefault();
+        localStorage.removeItem('user');
+        setUser({fname: "", id: 0, sumbission_status:'false'});
+        history.push('/');
+    };
 
     return (
 
@@ -17,17 +17,14 @@ function TopNav({user, setUser}) {
                 expand="sm"
                 fixed='top'
                 id='topnav'>
-                    <Link>
-                    OH HERRO
-                    </Link>
-                {/* <Navbar.Brand>
-                    <Link to='/'id='shoppies'>
+                <Navbar.Brand>
+                    <Link to='/'id='Acclivity'>
                     <img id="logo"
-                        src="https://www.nydailynews.com/resizer/Ee9izZJ1zk1aij0aZ0lwemFgLoQ=/800x553/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/LGGTNSKXKRH6LM53TFE4VDJIYI.jpg"
+                        src=""
                         className="d-inline-block align-top"
                         alt="Logo"/>
-                    </Link> */}
-                {/* </Navbar.Brand>
+                    </Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
@@ -37,7 +34,7 @@ function TopNav({user, setUser}) {
                                     <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
                                 </NavDropdown>:''}
                         </Nav>
-                    </Navbar.Collapse> */}
+                    </Navbar.Collapse>
             </Navbar>
         </React.Fragment>
     );
