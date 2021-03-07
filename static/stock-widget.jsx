@@ -27,6 +27,22 @@ const handleStockClick = (e) => {
     }
 }
 
+//Get all stocks belonging to a User
+const getUserStocks = (setUserStocks) => {
+    const payload = {'user_id': 0}
+    console.log('calling get Usr Stocks!!!!')
+    fetch('/api/get-user-stocks', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        console.log('data returned from user stocks fetch', data)
+        setUserStocks(data)
+    })
+}
+
 //Build each individual stock node
 const Stocks = (stock) => {
 
@@ -40,6 +56,7 @@ const Stocks = (stock) => {
                 <Col><p>{stock.dividend_amount}</p></Col>
                 <Col><p>{stock.dividend_yield}</p></Col>
                 <Col><p>{stock.payout_schedule}</p></Col>
+                <Col><p>{stock.quantity}</p></Col>
                 <Col>
                     <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
                     <Button id={stock.id} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
@@ -53,6 +70,7 @@ const Stocks = (stock) => {
 const StocksContainer = () => {
 
     const [stocks, setStocks] = React.useState([]);
+    const [userStocks, setUserStocks] = React.useState({});
     const stocksArr = [];
     const sectors = {};
     const headers = <Row id = "symbol-space">
@@ -71,10 +89,12 @@ const StocksContainer = () => {
         .then(response => response.json())
         .then(data => {
             setStocks(data)
-        });
+        })
+        .then(getUserStocks(setUserStocks))
     }, []);
 
     for(const stock of stocks) {
+        let quantity = userStocks[stock.id] ?  userStocks[stock.id] : 0;
         const stockNode =  <Stocks
                                 symbol={stock.symbol}
                                 name={stock.company_name}
@@ -84,6 +104,7 @@ const StocksContainer = () => {
                                 price={stock.stock_price}
                                 interval={stock.payout_ratio}
                                 id={stock.id}
+                                quantity={quantity}
                             />
         if(!sectors[stock.sector]) {
             sectors[stock.sector] = [stockNode]

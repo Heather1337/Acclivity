@@ -79,21 +79,6 @@ def get_user_stocks(user_id):
     stock_tuples = db.session.query(Stock).select_from(Stock).join(
         UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
 
-    for stock in stock_tuples:
-        stock_object = {
-            'symbol':stock.symbol,
-            'company_name':stock.company_name,
-            'dividend_amount':stock.dividend_amount,
-            'dividend_yield':stock.dividend_yield,
-            'payout_ratio':stock.payout_ratio,
-            'payout_schedule':stock.payout_schedule,
-            'stock_price':stock.stock_price,
-            'stock_price':stock.sector
-        }
-        stock_object_list.append(stock_object)
-
-
-    print(stock_object_list)
     return stock_tuples
 
 
@@ -130,7 +115,7 @@ def get_user_by_email(email):
             'lname': result.lname,
             'password': result.password,
             'user_id': result.user_id}
-    print('GET USER BY EMAIL *****************************************************************************',user)
+    print('GET USER BY EMAIL *****************************************************************************', user)
     return user
 
 
@@ -148,8 +133,9 @@ def does_user_exist(email):
 def validate_user(password, email):
     """CHECK FOR VALID PASSWORD AT LOGIN"""
 
-    user = User.query.filter(User.password == password, User.email == email).first()
-    print('Validate user *****************************************************************************',user)
+    user = User.query.filter(User.password == password,
+                             User.email == email).first()
+    print('Validate user *****************************************************************************', user)
     return user
 
 
