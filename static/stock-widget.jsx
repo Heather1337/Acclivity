@@ -1,8 +1,32 @@
 "use strict";
 
 const handleStockClick = (e) => {
-    if(e.target.innerText === "+") console.log("ADDED DIVIDEND")
-    if(e.target.innerText === "-") console.log("SUBTRACTED DIVIDEND")
+    const stock_id = e.target.id;
+    const user_id = localStorage.id;
+    const payload = {'stock_id': stock_id, 'user_id': user_id}
+
+    if(e.target.innerText === "+") {
+        console.log("ADDED DIVIDEND");
+        fetch('/api/add-user-stock', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        })
+        .then(resp => resp.json())
+        .then(data => console.log('Added stock to user account', data))
+        //Call Patch request to update the amount of stocks for this user
+    }
+    else if(e.target.innerText === "-") {
+        console.log("SUBTRACTED DIVIDEND");
+        fetch('/api/remove-user-stock', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        })
+        .then(resp => resp.json())
+        .then(data => console.log('Removed stock to user account', data))
+        //Call Patch request to update the amount of stocks for this user
+    }
 }
 
 //Build each individual stock node
@@ -19,8 +43,8 @@ const Stocks = (stock) => {
                 <Col><p>{stock.dividend_yield}</p></Col>
                 <Col><p>{stock.payout_schedule}</p></Col>
                 <Col>
-                    <Button size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
-                    <Button size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
+                    <Button id={stock.symbol} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
+                    <Button id={stock.symbol} size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
                 </Col>
             </Row>
         </Container>
@@ -39,7 +63,7 @@ const StocksContainer = () => {
             <Col><p>Stock Name</p></Col>
             <Col><p>Current Price</p></Col>
             <Col><p>Interval</p></Col>
-            <Col><p>Divident</p></Col>
+            <Col><p>Dividend</p></Col>
             <Col><p>Dividend Yield</p></Col>
             <Col><p>Payout Schedule</p></Col>
             <Col><p>Quantity</p></Col>
