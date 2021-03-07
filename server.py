@@ -1,5 +1,5 @@
 from flask import (Flask, render_template, request, flash, session,
-                   redirect,jsonify)
+                   redirect, jsonify)
 from model import connect_to_db, db, User
 import crud
 from jinja2 import StrictUndefined
@@ -9,8 +9,8 @@ import os
 app = Flask(__name__)
 
 
-@app.route('/', defaults={'input_path': ''}) #if this matches the URL
-@app.route('/<path:input_path>') #or if this does
+@app.route('/', defaults={'input_path': ''})  # if this matches the URL
+@app.route('/<path:input_path>')  # or if this does
 def show_homepage(input_path):
     """SHOW APPLICATION HOMEPAGE."""
     return render_template('index.html')
@@ -50,7 +50,7 @@ def get_user_nominations():
 def add_user_stock():
     '''TOGGLE MOVIE NOMINATION STATUS'''
 
-     #  GET DATA
+    #  GET DATA
     # ****************************** #
     data = request.get_json()
     user_id = data['user_id']
@@ -78,6 +78,7 @@ def remove_user_stock():
     return jsonify('stock_removed')
 # *============================================= USER ACCOUNT ROUTES =============================================
 
+
 @app.route('/api/signup', methods=["POST"])
 def sign_up():
     """ADD NEW USER TO DB AND GO TO HOMEPAGE"""
@@ -95,9 +96,8 @@ def sign_up():
     if existing_user == 'user exists':
         return jsonify('user exits')
     else:
-        new_user = crud.create_user(fname,lname,email,password)
+        new_user = crud.create_user(fname, lname, email, password)
         return jsonify('account created')
-
 
 
 @app.route('/api/login', methods=["POST"])
@@ -112,13 +112,14 @@ def login_user():
     user = crud.get_user_by_email(email)
     # ****************************** #
 
-    is_user = crud.validate_user(password,email)
+    is_user = crud.validate_user(password, email)
 
     if is_user:
-        return jsonify({'fname' : user['fname'], 'id':user['user_id'], 'submission_status':user['submission_status'] })
+        return jsonify({'fname': user['fname'], 'id': user['user_id'], 'submission_status': user['submission_status']})
 
     else:
         return jsonify('info does not match')
+
 
 if __name__ == '__main__':
     connect_to_db(app)
