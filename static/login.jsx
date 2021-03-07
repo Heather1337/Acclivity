@@ -24,6 +24,9 @@ function Login(props) {
     return (
         <React.Fragment>
 
+
+            <Row className="login-signup-row">
+
             <Form id="loginform" onSubmit={handleSubmit}>
 
             <Form.Group controlId="formBasicEmail">
@@ -51,6 +54,8 @@ function Login(props) {
             </Button>
 
             </Form>
+
+            </Row>
 
         </React.Fragment>
     );

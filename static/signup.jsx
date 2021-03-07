@@ -5,16 +5,19 @@ function Signup({setUser}) {
   const [password, setPassword] = React.useState('')
   const [fname, setFname] = React.useState('')
   const [lname, setLname] = React.useState('')
+  const history = useHistory();
 
   function handleSubmit(evt){
     evt.preventDefault()
     let data = {email:email, password:password, fname:fname, lname:lname}
+    console.log(data)
     fetch('/api/signup',
     {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}} )
     .then(response => response.json())
     .then(data => {
     if (data == 'account created'){
       alert('account created, please login')
+      history.push('/login');
     }else{
       alert('invalid email or password')
     }

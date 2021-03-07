@@ -112,7 +112,6 @@ def get_user_by_email(email):
             'fname': result.fname,
             'lname': result.lname,
             'password': result.password,
-            'submission_status': result.submission_status,
             'user_id': result.user_id}
 
     return user
@@ -140,7 +139,7 @@ def create_user(fname, lname, email, password):
 
     now = datetime.datetime.now()
     new_user = User(fname=fname, lname=lname, email=email, password=password,
-                    submission_status='false', date_added=now, date_modified=now)
+                    date_added=now, date_modified=now)
 
     db.session.add(new_user)
     db.session.commit()
@@ -149,7 +148,6 @@ def create_user(fname, lname, email, password):
             'fname': new_user.fname,
             'lname': new_user.lname,
             'password': new_user.password,
-            'submission_status': new_user.submission_status,
             'user_id': new_user.user_id}
     return user
 

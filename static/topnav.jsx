@@ -6,7 +6,7 @@ function TopNav({user, setUser}) {
         evt.preventDefault();
         localStorage.removeItem('user');
         setUser({fname: "", id: 0, sumbission_status:'false'});
-        // history.push('/');
+        history.push('/');
     };
 
     return (

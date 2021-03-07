@@ -23,11 +23,12 @@ function App() {
                   </Route>
 
 
-                  <Route path='/signup'>
+                  <Route exact path='/signup'>
                        <Signup setUser={setUser} user={user}/>
                    </Route>
 
-                   <Route path='/login'>
+
+                   <Route exact path='/login'>
                        <Login user={user} setUser={setUser}/>
                    </Route>
 
