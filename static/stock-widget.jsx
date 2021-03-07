@@ -1,7 +1,8 @@
 "use strict";
 
-const handleStockClick = () => {
-    console.log('Clicked!!!!!');
+const handleStockClick = (e) => {
+    if(e.target.innerText === "+") console.log("ADDED DIVIDEND")
+    if(e.target.innerText === "-") console.log("SUBTRACTED DIVIDEND")
 }
 
 //Build each individual stock node
@@ -18,8 +19,8 @@ const Stocks = (stock) => {
                 <Col><p>{stock.dividend_yield}</p></Col>
                 <Col><p>{stock.payout_schedule}</p></Col>
                 <Col>
-                    <Button size="sm" variant="outline-info" onClick={handleStockClick}>+</Button>
-                    <Button size="sm" variant="outline-info" onClick={handleStockClick}>-</Button>
+                    <Button size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>+</Button>
+                    <Button size="sm" variant="outline-info" onClick={(e)=>handleStockClick(e)}>-</Button>
                 </Col>
             </Row>
         </Container>
