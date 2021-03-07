@@ -92,7 +92,8 @@ def get_all_stocks():
                        "payout_schedule": interval,
                        "stock_price": s.stock_price,
                        "company_name": s.company_name,
-                       "sector": s.sector
+                       "sector": s.sector,
+                       "id": s.stock_id
                        })
 
     return jsonify(stocks[:20])
@@ -113,12 +114,13 @@ def get_user_nominations():
     return jsonify(user_stocks)
 
 
-@app.route('/api/set-user-stocks', methods=["POST"])
+@app.route('/api/add-user-stock', methods=["POST"])
 def add_user_stock():
     '''TOGGLE MOVIE NOMINATION STATUS'''
 
     #  GET DATA
     # ****************************** #
+    print('=========================', request.get_json())
     data = request.get_json()
     user_id = data['user_id']
     stock_id = data['stock_id']
@@ -129,7 +131,7 @@ def add_user_stock():
     return jsonify('stock added')
 
 
-@app.route('/api/set_user_stock', methods=["POST"])
+@app.route('/api/remove_user_stock', methods=["POST"])
 def remove_user_stock():
     '''REMOVE STOCK FROM USER'''
 
@@ -141,7 +143,7 @@ def remove_user_stock():
     # ****************************** #
 
     #  REMOVE STOCK
-    stock_remove = crud.remove_user_stock(user_id, stock_id)
+    # stock_remove = crud.remove_user_stock(user_id, stock_id)
     return jsonify('stock_removed')
 # *============================================= USER ACCOUNT ROUTES =============================================
 
@@ -174,15 +176,15 @@ def login_user():
     #  GET DATA
     # ****************************** #
     data = request.get_json()
+    print('THISI IS DATA #########################################################################################',data)
     email = data['email']
     password = data['password']
-    user = crud.get_user_by_email(email)
     # ****************************** #
 
     is_user = crud.validate_user(password, email)
 
     if is_user:
-        print('IS USER')
+        user = crud.get_user_by_email(email)
         return jsonify({'fname': user['fname'], 'id': user['user_id']})
 
     else:

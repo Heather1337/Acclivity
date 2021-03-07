@@ -25,6 +25,15 @@ stock_data = 'data/Acclivity.csv'
 
 
 # ************************************************************************************
+new_user = User(fname = 'User',
+                lname ='user',
+                email = 'user@gmail.com',
+                password = 'user',
+                date_added = '2020-11-21',
+                date_modified = '2020-11-21')
+db.session.add(new_user)
+db.session.commit()
+
 stocks = {}
 
 with open(stock_data, 'r') as file:

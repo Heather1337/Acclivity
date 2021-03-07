@@ -15,13 +15,12 @@ def get_profile_risk(user_id):
     for stock in stock_tuples:
         payout_ratio += stock.payout_ratio
 
-    if payout_ratio < 35 :
+    if payout_ratio < 35:
         return ('very low')
     if payout_ratio > 35 and payout_ratio < 55:
         return ('average')
     if payout_ratio > 55:
         return ('high')
-
 
 
 def get_user_industries(user_id):
@@ -37,7 +36,7 @@ def get_user_payouts(user_id):
     monthlyPayout = 0
     otherPayout = 0
     AnnualPayout = 0
-    spent = 0 
+    spent = 0
 
     stock_tuples = get_user_stocks(user_id)
     for payout in stock_tuples:
@@ -56,7 +55,7 @@ def get_user_payouts(user_id):
 
         spent += payout.stock_price
 
-    return [quarterlyPayout,monthlyPayout,otherPayout,AnnualPayout]
+    return [quarterlyPayout, monthlyPayout, otherPayout, AnnualPayout]
 
 
 # ======================================== STOCK ROUTES =============================================
@@ -76,10 +75,12 @@ def get_all_stocks():
 def get_user_stocks(user_id):
     '''RETURN USER'S NOMINATIONS'''
 
-    stock_tuples = db.session.query(Stock).select_from(Stock).join(UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
+    stock_tuples = db.session.query(Stock).select_from(Stock).join(
+        UserStock, Stock.stock_id == UserStock.stock_id).filter(UserStock.user_id == user_id).all()
 
     print(stock_tuples)
     return stock_tuples
+
 
 def remove_user_stock(user_id, stock_id):
     '''REMOVE NOMINATION'''
@@ -89,6 +90,7 @@ def remove_user_stock(user_id, stock_id):
 
     db.session.delete(stock)
     db.session.commit()
+
 
 def add_user_stock(user_id, stock_id):
     '''ADD NOMINATION'''
@@ -113,7 +115,7 @@ def get_user_by_email(email):
             'lname': result.lname,
             'password': result.password,
             'user_id': result.user_id}
-
+    print('GET USER BY EMAIL *****************************************************************************',user)
     return user
 
 
@@ -131,7 +133,9 @@ def does_user_exist(email):
 def validate_user(password, email):
     """CHECK FOR VALID PASSWORD AT LOGIN"""
 
-    return User.query.filter(User.password == password, User.email == email).first()
+    user = User.query.filter(User.password == password, User.email == email).first()
+    print('Validate user *****************************************************************************',user)
+    return user
 
 
 def create_user(fname, lname, email, password):
