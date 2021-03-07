@@ -12,18 +12,9 @@ function App() {
 
     return (
 
-        // <StocksContainer user={user} setUser={setUser}/>
       <Router>
 
-<<<<<<< HEAD
-             {/* <TopNav user={user} setUser={setUser}/> */}
-              {/* <Dashboard/> */}
-              <StocksContainer user={user} setUser={setUser}/>
-=======
              <TopNav user={user} setUser={setUser}/>
-              {/* <Dashboard/> */}
-              {/* <StocksContainer user={user} setUser={setUser}/> */}
->>>>>>> 04968b4d5acafa63e222056a8dfe15823b70e262
 
           <Switch>
                   <Route path="/">
@@ -31,12 +22,13 @@ function App() {
                       <StocksContainer user={user} setUser={setUser}/>
                   </Route>
 
-                   {/* <Route path='/login'>
-                       <Login user={user} setUser={setUser}/>
+
+                  <Route path='/signup'>
+                       <Signup setUser={setUser} user={user}/>
                    </Route>
 
-                   <Route path='/signup'>
-                       <Signup setUser={setUser} user={user}/>
+                   {/* <Route path='/login'>
+                       <Login user={user} setUser={setUser}/>
                    </Route>
 
                    <Route path="/">
