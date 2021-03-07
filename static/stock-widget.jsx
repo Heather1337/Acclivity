@@ -55,8 +55,7 @@ const StocksContainer = () => {
     const [stocks, setStocks] = React.useState([]);
     const stocksArr = [];
     const sectors = {};
-
-    const headers = <Row>
+    const headers = <Row id = "symbol-space">
             <Col><p>Symbol</p></Col>
             <Col><p>Stock Name</p></Col>
             <Col><p>Current Price</p></Col>
