@@ -159,12 +159,12 @@ const StocksContainer = () => {
             <Table size="sm" className="sector-table">
                 <thead>
                     <th>Symbol</th>
-                    <th>Stock Name</th>
-                    <th>Current Price</th>
+                    <th>Company</th>
+                    <th></th>
                     <th>Interval</th>
                     <th>Dividend</th>
-                    <th>Dividend Yield</th>
-                    <th>Payout Schedule</th>
+                    <th>Yield</th>
+                    <th>Schedule</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
@@ -176,12 +176,12 @@ const StocksContainer = () => {
             <Table size="sm" className="sector-table">
                 <thead>
                     <th>Symbol</th>
-                    <th>Stock Name</th>
-                    <th>Current Price</th>
+                    <th>Company</th>
+                    <th></th>
                     <th>Interval</th>
                     <th>Dividend</th>
-                    <th>Dividend Yield</th>
-                    <th>Payout Schedule</th>
+                    <th>Yield</th>
+                    <th>Schedule</th>
                     <th>Quantity</th>
                 </thead>
                 <tbody>
