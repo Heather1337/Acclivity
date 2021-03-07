@@ -7,7 +7,7 @@ function Dashboard(props) {
     const [portfolioRisk, setPortfolioRisk] = React.useState('None');
     const [sectorsOccupied, setSectorsOccupied] = React.useState([]);
     const stocks = props.dashboardRefresher
-    console.log(stocks)
+    console.log(sectorsOccupied)
 
 
     React.useEffect(() =>{
