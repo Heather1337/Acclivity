@@ -7,7 +7,7 @@ db = SQLAlchemy()
 
 
 class User(db.Model):
-    """A user."""
+    """A user. """
 
     __tablename__ = 'users'
 
